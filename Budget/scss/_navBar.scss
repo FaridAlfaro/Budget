@@ -384,3 +384,12 @@ header {
 .fa-bars {
   font-size: 28px;
 }
+.count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  font-weight: 700;
+  color: $BudgetBlu;
+  font-size: 1rem;
+  line-height: 1;
+}

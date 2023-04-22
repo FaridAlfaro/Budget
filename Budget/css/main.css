@@ -393,6 +393,16 @@ header {
   font-size: 28px;
 }
 
+.count {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  font-weight: 700;
+  color: #00b0b9;
+  font-size: 1rem;
+  line-height: 1;
+}
+
 * {
   margin: 0;
   padding: 0;
