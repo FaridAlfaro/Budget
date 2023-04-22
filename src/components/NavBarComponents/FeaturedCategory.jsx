@@ -4,10 +4,10 @@ function FeaturedCategory(){
     
     return(
       <nav className="featured-category">
-        <ul className="nav-row">
+        <ul className="ul_nav nav-row">
           {categorias.map((categoria, index) => (
             <li className="nav-row-list" key={index}>
-              <a href={links[index]} className="nav-row-list-link">
+              <a href={links[index]} className="a_nav nav-row-list-link">
                 {categoria}
               </a>
             </li>

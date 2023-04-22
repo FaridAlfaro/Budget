@@ -29,7 +29,7 @@ function AllCategoryNav() {
         ];
     return(
       <nav className="all-category-nav">
-        <label className="open-menu-all" htmlFor="open-menu-all">
+        <label className="label_nav open-menu-all label_nav" htmlFor="open-menu-all">
           <input
             className="input-menu-all"
             id="open-menu-all"
@@ -37,11 +37,11 @@ function AllCategoryNav() {
             name="menu-open"
           />
           <span className="all-navigator">
-           <FontAwesomeIcon icon={faBars} /><span>Categórias</span>{" "}
+           <FontAwesomeIcon icon={faBars} /><span className='span_nav'>Categórias</span>{" "}
            <FontAwesomeIcon icon={faAngleDown} />
            <FontAwesomeIcon icon={faAngleUp} />  
           </span>
-          <ul className="all-category-list">
+          <ul className="ul_nav all-category-list">
             <HoverMenu cat ="Celulares" item ={itemsA} img= "/img/Categorias/1.jpg"/>
             <HoverMenu cat = "Consolas" item ={itemsB} img= "/img/Categorias/2.jpg"/>
             <HoverMenu cat = "Videojuegos" item ={itemsC} img= "/img/Categorias/3.jpg"/>

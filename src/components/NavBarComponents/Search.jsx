@@ -3,7 +3,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 function Search() {
     return(
-        <label className="open-search" htmlFor="open-search">
+        <label className="open-search label_nav" htmlFor="open-search">
         <FontAwesomeIcon icon={faSearch}  className='fa-search'/>
         <input
         className="input-open-search"

@@ -11,7 +11,7 @@ function CartWidget() {
 
   return (
     <li className="nav-content-item">
-      <a className="nav-content-link" href="#" onClick={handleClick}>
+      <a className="a_nav nav-content-link" href="#" onClick={handleClick}>
         <FontAwesomeIcon icon={faShoppingCart} className='cart'/>
         <p className="count">{count}</p>
       </a>

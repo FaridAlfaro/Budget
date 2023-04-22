@@ -1,24 +1,26 @@
-strong {
+.strong_nav {
   padding: 0;
   margin: 0;
 }
-label,
-a {
+.label_nav, .a_nav{
   text-decoration: none;
   color: $color-text;
 }
 
-ul {
+.ul_nav{
   list-style: none;
   padding: 0;
 }
-header {
+
+.header{
   box-shadow: $shadow;
   position: sticky;
   top: 0;
   width: 100%;
   z-index:  10;
+  background-color: #fff;
 }
+
 .container {
   align-items: center;
   display: flex;
@@ -31,6 +33,7 @@ header {
   width: 100%;
   .logo {
     height: 2rem;
+    margin: 0 1rem;
   }
   .open-search {
     border-radius: 3px;
@@ -262,7 +265,7 @@ header {
       font-size: 16px;
       margin-right: 0;
     }
-    span {
+    .span_nav {
       margin-left: 15px;
     }
   }

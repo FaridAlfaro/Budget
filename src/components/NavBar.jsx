@@ -5,9 +5,9 @@ import Search from './NavBarComponents/Search';
 
 function NavBar(){
     return(
-        <header>
+        <header className='header_nav'>
             <div className="container">
-                <a href="/index.html">
+                <a href="/index.html" className='a_nav'>
                     <img src="/img/LOGO/Recurso 135.svg" className="logo" alt />
                 </a>
                 <Search />
