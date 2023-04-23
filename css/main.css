@@ -331,7 +331,7 @@ body {
   position: absolute;
   top: 24px;
   width: 300px;
-  z-index: 90;
+  z-index: 99;
 }
 @media (max-width: 991px) {
   .nav-container .all-category-list {
@@ -478,12 +478,12 @@ body {
 
 .carousel-button.left {
   left: 0;
-  z-index: 99;
+  z-index: 90;
 }
 
 .carousel-button.right {
   right: 0;
-  z-index: 99;
+  z-index: 90;
 }
 
 .carousel-button:hover {
