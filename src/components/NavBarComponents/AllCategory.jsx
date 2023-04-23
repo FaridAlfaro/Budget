@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import imagen1 from 'https://i.ibb.co/cQJ2BSC/1.jpg';
-import imagen2 from 'https://i.ibb.co/SBrpJKJ/2.jpg';
-import imagen3 from 'https://i.ibb.co/yW1zLG3/3.jpg';
-import imagen4 from 'https://i.ibb.co/mGtPvhn/4.jpg';
-import imagen5 from 'https://i.ibb.co/JvZdBXS/5.jpg';
+import imagen1 from '../../../img/Categorias/1.jpg';
+import imagen2 from '../../../img/Categorias/2.jpg';
+import imagen3 from '../../../img/Categorias/3.jpg';
+import imagen4 from '../../../img/Categorias/4.jpg';
+import imagen5 from '../../../img/Categorias/5.jpg';
 
 import HoverMenu from './HoverMenu';
 function AllCategoryNav() {
