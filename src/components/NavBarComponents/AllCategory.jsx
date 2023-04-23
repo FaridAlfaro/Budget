@@ -1,5 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import imagen1 from 'https://i.ibb.co/cQJ2BSC/1.jpg';
+import imagen2 from 'https://i.ibb.co/SBrpJKJ/2.jpg';
+import imagen3 from 'https://i.ibb.co/yW1zLG3/3.jpg';
+import imagen4 from 'https://i.ibb.co/mGtPvhn/4.jpg';
+import imagen5 from 'https://i.ibb.co/JvZdBXS/5.jpg';
+
 import HoverMenu from './HoverMenu';
 function AllCategoryNav() {
         const itemsA = [
@@ -42,11 +48,11 @@ function AllCategoryNav() {
            <FontAwesomeIcon icon={faAngleUp} />  
           </span>
           <ul className="ul_nav all-category-list">
-            <HoverMenu cat ="Celulares" item ={itemsA} img= "/img/Categorias/1.jpg"/>
-            <HoverMenu cat = "Consolas" item ={itemsB} img= "/img/Categorias/2.jpg"/>
-            <HoverMenu cat = "Videojuegos" item ={itemsC} img= "/img/Categorias/3.jpg"/>
-            <HoverMenu cat = "Drones" item ={itemsD} img= "/img/Categorias/4.jpg"/>
-            <HoverMenu cat = "Cámaras" item ={itemsE} img= "/img/Categorias/5.jpg"/>
+            <HoverMenu cat ="Celulares" item ={itemsA} img={imagen1}/>
+            <HoverMenu cat = "Consolas" item ={itemsB} img={imagen2} />
+            <HoverMenu cat = "Videojuegos" item ={itemsC} img={imagen3} />
+            <HoverMenu cat = "Drones" item ={itemsD} img={imagen4} />
+            <HoverMenu cat = "Cámaras" item ={itemsE} img={imagen5} />
           </ul>
         </label>
       </nav>
