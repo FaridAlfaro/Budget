@@ -2,15 +2,15 @@
 // function Carousel() {
 //   const images = [
 //     {
-//       src: '../../img/header/1.png',
+//       src: 'https://i.ibb.co/k1BfGw3/1.png',
 //       alt: 'Static Image 1',
 //     },
 //     {
-//       src: '../../img/header/2.png',
+//       src: 'https://i.ibb.co/f2fCh9T/2.png',
 //       alt: 'Static Image 2',
 //     },
 //     {
-//       src: '../../img/header/3.png',
+//       src: 'https://i.ibb.co/CBHDSXp/3.png',
 //       alt: 'Static Image 3',
 //     }
 //   ];

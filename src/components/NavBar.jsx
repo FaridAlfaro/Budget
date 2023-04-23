@@ -2,13 +2,13 @@ import AllCategoryNav from './NavBarComponents/AllCategory'
 import NavConten from './NavBarComponents/NavConten'
 import FeaturedCategory from './NavBarComponents/FeaturedCategory'
 import Search from './NavBarComponents/Search';
-
+import Logo from '../../img/LOGO/Recurso 135.svg'
 function NavBar(){
     return(
         <header className='header_nav'>
             <div className="container">
                 <a href="/index.html" className='a_nav'>
-                    <img src="/img/LOGO/Recurso 135.svg" className="logo" alt />
+                    <img src={Logo} className="logo" alt />
                 </a>
                 <Search />
                 <NavConten />
