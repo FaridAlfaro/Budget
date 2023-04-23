@@ -48,11 +48,11 @@ function AllCategoryNav() {
            <FontAwesomeIcon icon={faAngleUp} />  
           </span>
           <ul className="ul_nav all-category-list">
-            <HoverMenu cat ="Celulares" item ={itemsA} img={imagen1}/>
-            <HoverMenu cat = "Consolas" item ={itemsB} img={imagen2} />
-            <HoverMenu cat = "Videojuegos" item ={itemsC} img={imagen3} />
-            <HoverMenu cat = "Drones" item ={itemsD} img={imagen4} />
-            <HoverMenu cat = "Cámaras" item ={itemsE} img={imagen5} />
+            <HoverMenu cat ="Celulares" item ={itemsA} img={imagen2}/>
+            <HoverMenu cat = "Consolas" item ={itemsB} img={imagen1} />
+            <HoverMenu cat = "Videojuegos" item ={itemsC} img={imagen5} />
+            <HoverMenu cat = "Drones" item ={itemsD} img={imagen3} />
+            <HoverMenu cat = "Cámaras" item ={itemsE} img={imagen4} />
           </ul>
         </label>
       </nav>

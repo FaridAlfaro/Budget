@@ -6,7 +6,7 @@ import Logo from '../../img/LOGO/Recurso 135.svg'
 function NavBar(){
     return(
         <header className='header_nav'>
-            <div className="container">
+            <div className="container_logo">
                 <a href="/index.html" className='a_nav'>
                     <img src={Logo} className="logo" alt />
                 </a>
