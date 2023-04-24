@@ -7,11 +7,8 @@
 }
 
 .carousel-image {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 924px;
+  height: auto;
   object-fit: cover;
   scale: .7;
   opacity: 1;
@@ -31,6 +28,7 @@
 }
 
 .carousel-image.next-image {
+  display: none;
   opacity: 0;
   z-index: 0;
 }

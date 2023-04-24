@@ -4,6 +4,8 @@ import "aos/dist/aos.css";
 import "../css/main.css";
 import NavBar from "./components/NavBar";
 import Carousel from "./components/Carousel";
+import Title from "./components/Title"
+import Footer from "./components/Footer";
 import img1 from "../img/header/1.png";
 import img2 from "../img/header/2.png";
 import img3 from "../img/header/3.png";
@@ -21,6 +23,9 @@ function App() {
     <>
       <NavBar />
       <Carousel images={images} />
+      <Title title = 'Ofertas' linkdir = '#' link ='ver más' width = '110px'/>
+      <Title title = 'Un titulo un poco largo' linkdir = '#' link ='ver más' width = '325px'/>
+      <Footer />
     </>
   );
 }
