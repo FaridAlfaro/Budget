@@ -8,31 +8,15 @@ import imagen5 from '../../../../img/Categorias/5.jpg';
 
 import HoverMenu from './HoverMenu';
 function AllCategoryNav() {
-        const itemsA = [
-          { id: 91, name: 'Iphone', url: 'https://github.com/FaridAlfaro/Budget'},
-          { id: 92, name: 'Samsung', url: 'https://instagram.com' },
-          { id: 93, name: 'Xiaomi', url: '#' }
-        ];
-        const itemsB = [
-          { id: 94, name: 'Switch', url: '#' },
-          { id: 95, name: 'PlayStation', url: '#' },
-          { id: 96, name: 'Xbox', url: '#' }
-        ];
-        const itemsC = [
-          { id: 97, name: 'Switch', url: '#' },
-          { id: 98, name: 'PlayStation', url: '#' },
-          { id: 99, name: 'Xbox', url: '#' },
-          { id: 910, name: 'Coleccionables', url: '#' }
-        ];
-        const itemsD = [
-          { id: 911, name: 'DJI', url: '#' },
-          { id: 912, name: 'Otras marcas', url: '#' }
-        ];
-        const itemsE = [
-          { id: 913, name: 'Nikon', url: '#' },
-          { id: 914, name: 'Canon', url: '#' },
-          { id: 915, name: 'GoPro', url: '#' }
-        ];
+  const categorias = [
+    { id: "Celulares", name: "Celulares" },
+    { id: "Consolas", name: "Consolas" },
+    { id: "Drones", name: "Drones" },
+    { id: "Cámaras", name: "Cámaras" },
+    { id: "Videojuegos", name: "Videojuegos" },
+    { id: "", name: "Todos" }
+  ];
+  
     return(
       <nav className="all-category-nav">
         <label className="label_nav open-menu-all label_nav" htmlFor="open-menu-all">
@@ -48,11 +32,7 @@ function AllCategoryNav() {
            <FontAwesomeIcon icon={faAngleUp} />  
           </span>
           <ul className="ul_nav all-category-list">
-            <HoverMenu cat ="Celulares" item ={itemsA} img={imagen2}/>
-            <HoverMenu cat = "Consolas" item ={itemsB} img={imagen1} />
-            <HoverMenu cat = "Videojuegos" item ={itemsC} img={imagen5} />
-            <HoverMenu cat = "Drones" item ={itemsD} img={imagen3} />
-            <HoverMenu cat = "Cámaras" item ={itemsE} img={imagen4} />
+            <HoverMenu categorias={categorias}/>
           </ul>
         </label>
       </nav>

@@ -10,8 +10,7 @@ function NavBar(){
         { id: "Consolas", name: "Consolas" },
         { id: "Drones", name: "Drones" },
         { id: "Cámaras", name: "Cámaras" },
-        { id: "Videojuegos", name: "Videojuegos" },
-        { id: "", name: "Todos" }
+        { id: "Videojuegos", name: "Videojuegos" }
       ];
       
     return(

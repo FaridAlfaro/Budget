@@ -387,7 +387,6 @@ a:hover {
 }
 .nav-container .all-category-list-item:hover {
   display: block;
-  background: #00b80f;
   background: linear-gradient(90deg, rgb(2, 0, 36) 0%, rgb(0, 176, 185) 0%, rgb(0, 185, 16) 100%);
 }
 .nav-container .all-category-list-item:hover .category-second-list {
