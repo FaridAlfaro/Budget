@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -13,7 +13,7 @@ import 'primereact/resources/primereact.css';
 function App() {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 1000, 
     });
   }, []);
 
@@ -22,6 +22,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={ <ItemListContainer/> }/>
+        <Route path="/productos/:categoryId" element={ <ItemListContainer/> }/>
         <Route path="/home" element={ <Home/> }/>
         <Route path="*" element={<Navigate to={'/home'}/>}/>
       </Routes>
