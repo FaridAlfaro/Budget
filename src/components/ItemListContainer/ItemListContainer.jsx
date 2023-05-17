@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import pedirDatos from "../../helpers/pedirDatos";
 import ItemList from "../ItemList/ItemList";
 import Title from "../Title section/Title";
@@ -32,7 +30,7 @@ function ItemListContainer() {
   }, [categoryId]);
 
   return (
-    <Title title="Productos" linkdir="/productos" link="ver más" width="110px">
+    <Title title={`Productos${categoryId ? " - " + categoryId : ""}`} linkdir="/productos" link="ver todos" width="110px">
       {isLoading ? <LoadingSpinner /> : <ItemList productos={productos} />}
     </Title>
   );

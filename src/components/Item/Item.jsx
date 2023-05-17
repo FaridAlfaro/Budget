@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function ItemCard({item}){
+function Item({item}){
     const {image, price, name, id} = item
     return(
         <div className="items">
@@ -14,4 +14,4 @@ function ItemCard({item}){
     )
 }
 
-export default ItemCard
+export default Item

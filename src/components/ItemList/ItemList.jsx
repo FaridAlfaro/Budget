@@ -1,11 +1,11 @@
-import ItemCard from "../ItemCard/ItemCard"
+import Item from "../Item/Item"
 function ItemList({productos}){
     return(
                 
                 <div className="item_list">
 
                     {
-                      productos && productos.map((prod) => <ItemCard item={prod} key={prod.id}/>)   
+                      productos && productos.map((prod) => <Item item={prod} key={prod.id}/>)   
                     }
 
                 </div>
