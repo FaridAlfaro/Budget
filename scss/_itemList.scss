@@ -5,18 +5,18 @@
     justify-content: center;
 }
 
-.loader {
-    color: $BudgetBlu;
-    position: absolute;
-    font-size: 2rem;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    padding: 1vh;
-    border-radius: 50%;
-  }
+.loader_contain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 300px;
+}
+.loader{
+  font-size: 2rem;
+  border-radius: 50%;
+  color: $BudgetBlu;
+}
+
 .items{
     margin: 2rem;
     width: 200px;
@@ -38,14 +38,12 @@
 .item_info{
     margin: 0 1rem 0 1rem;
     height: auto;
-    min-height: 80px;
-    max-height: 100px;
+    max-height: 20px;
     overflow: hidden;
     margin-bottom: 20px;
 }
 .item_name{
-    margin: .2rem;
-    font-size: 1.4rem;
+    font-size: 1rem;
 }
 .item_img{
     height: 200px;

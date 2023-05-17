@@ -2,7 +2,7 @@
 function Col({ title, items}){
     return(
         <div className="col">
-        <h1 className="footer_title">{title}</h1>
+        <h2 className="footer_title">{title}</h2>
         <ul className="footer_ul">
           {items.map((item) => (
             <li className="footer_li" key={item.url}>

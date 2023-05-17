@@ -1,4 +1,3 @@
-import Title from "../Title section/Title"
 import ItemCard from "../ItemCard/ItemCard"
 function ItemList({productos}){
     return(

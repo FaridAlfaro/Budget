@@ -4,7 +4,7 @@ import { faTwitterSquare, faInstagram, faWhatsapp } from '@fortawesome/free-bran
 function Socials() {
   return (
     <div className="col social">
-      <h1 className='send_title'>Social</h1>
+      <h2 className='send_title'>Social</h2>
       <ul>
         <li>
           <FontAwesomeIcon icon={faTwitterSquare} className='social_svg'/>

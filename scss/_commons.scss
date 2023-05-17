@@ -5,30 +5,32 @@
     font-size: 14px;
 }
 
-html, body{
-  height: 100%;
-  background-color: #fff;
+body{
+    background-color: #fff;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-}
-body{
-  min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 a{
   text-decoration: none;
   color: $BudgetGre;
   font-weight: 700;
 }
+a:visited {
+  color: inherit;
+}
 a:hover{
   color: $BudgetBlu;
   transition: .4s;
 }
 .title_contain{
-  display: flex;
+  display: inline-block;
   height: 4rem;
   width: 100%;
-  margin: 100px 2rem;
+  margin: 20px 2rem;
 }
 
 .title_section{

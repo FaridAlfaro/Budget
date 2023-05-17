@@ -4,7 +4,7 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 function Subscribe(){
     return(
         <div className='send_container'>
-            <h1 className='send_title'>Newsletter</h1>
+            <h2 className='send_title'>Newsletter</h2>
             <p className='send_copy'>Dejanos tu mail y recibí nuestras ofertas antes que nadie</p>
             <label className="send_label" htmlFor="open-search">
                     <button className="button_send">
