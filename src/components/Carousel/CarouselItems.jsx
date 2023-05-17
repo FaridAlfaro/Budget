@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from 'primereact/button';
 import { Carousel } from 'primereact/carousel';
 import { Tag } from 'primereact/tag';
-import { ProductService } from './Items';
+import { ProductService } from '../../Data/Items';
 function CircularDemo() {
     const [products, setProducts] = useState([]);
     const responsiveOptions = [
@@ -47,7 +47,7 @@ function CircularDemo() {
         return (
             <div className="border-1 surface-border border-round m-2 text-center py-5 px-3">
                 <div className="mb-3">
-                    <img src={`https://i.ibb.co/${product.image}`} alt={product.name} className="w-6 shadow-2" height={'200px'}/>
+                    <img src={product.image} alt={product.name} className="w-6 shadow-2" height={'200px'}/>
                 </div>
                 <div>
                     <h4 className="mb-1">{product.name}</h4>

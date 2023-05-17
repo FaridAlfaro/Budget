@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUserCircle, faHeart} from '@fortawesome/free-solid-svg-icons';
-import CartWidget from './CartWidget';
+import CartWidget from '../../CartWdget/CartWidget';
 function NavConten() {
     return(
       <nav className="nav-content">

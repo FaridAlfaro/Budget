@@ -1,37 +1,37 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
-import imagen1 from '../../../img/Categorias/1.jpg';
-import imagen2 from '../../../img/Categorias/2.jpg';
-import imagen3 from '../../../img/Categorias/3.jpg';
-import imagen4 from '../../../img/Categorias/4.jpg';
-import imagen5 from '../../../img/Categorias/5.jpg';
+import imagen1 from '../../../../img/Categorias/1.jpg';
+import imagen2 from '../../../../img/Categorias/2.jpg';
+import imagen3 from '../../../../img/Categorias/3.jpg';
+import imagen4 from '../../../../img/Categorias/4.jpg';
+import imagen5 from '../../../../img/Categorias/5.jpg';
 
 import HoverMenu from './HoverMenu';
 function AllCategoryNav() {
         const itemsA = [
-          { id: 1, name: 'Iphone', url: 'https://github.com/FaridAlfaro/Budget'},
-          { id: 2, name: 'Samsung', url: 'https://instagram.com' },
-          { id: 3, name: 'Xiaomi', url: '#' }
+          { id: 91, name: 'Iphone', url: 'https://github.com/FaridAlfaro/Budget'},
+          { id: 92, name: 'Samsung', url: 'https://instagram.com' },
+          { id: 93, name: 'Xiaomi', url: '#' }
         ];
         const itemsB = [
-          { id: 1, name: 'Switch', url: '#' },
-          { id: 2, name: 'PlayStation', url: '#' },
-          { id: 3, name: 'Xbox', url: '#' }
+          { id: 94, name: 'Switch', url: '#' },
+          { id: 95, name: 'PlayStation', url: '#' },
+          { id: 96, name: 'Xbox', url: '#' }
         ];
         const itemsC = [
-          { id: 1, name: 'Switch', url: '#' },
-          { id: 2, name: 'PlayStation', url: '#' },
-          { id: 3, name: 'Xbox', url: '#' },
-          { id: 4, name: 'Coleccionables', url: '#' }
+          { id: 97, name: 'Switch', url: '#' },
+          { id: 98, name: 'PlayStation', url: '#' },
+          { id: 99, name: 'Xbox', url: '#' },
+          { id: 910, name: 'Coleccionables', url: '#' }
         ];
         const itemsD = [
-          { id: 1, name: 'DJI', url: '#' },
-          { id: 2, name: 'Otras marcas', url: '#' }
+          { id: 911, name: 'DJI', url: '#' },
+          { id: 912, name: 'Otras marcas', url: '#' }
         ];
         const itemsE = [
-          { id: 1, name: 'Nikon', url: '#' },
-          { id: 2, name: 'Canon', url: '#' },
-          { id: 3, name: 'GoPro', url: '#' }
+          { id: 913, name: 'Nikon', url: '#' },
+          { id: 914, name: 'Canon', url: '#' },
+          { id: 915, name: 'GoPro', url: '#' }
         ];
     return(
       <nav className="all-category-nav">
