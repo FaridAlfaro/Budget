@@ -1,0 +1,118 @@
+.carrito_container{
+    background-color: white;
+    height: fit-content;
+    width: 40%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-top: 110px;
+    box-shadow: -16px 19px 18px -8px rgba(0,0,0,0.37);
+-webkit-box-shadow: -16px 19px 18px -8px rgba(0,0,0,0.37);
+-moz-box-shadow: -16px 19px 18px -8px rgba(0,0,0,0.37);
+}
+.cart_title{
+    font-size: 1.4rem;
+    position: absolute;
+    margin: 1rem;
+    border-bottom: solid 5px $BudgetGre;
+}
+.carrito_detail{
+    padding: 20px;
+}
+  
+  .cart_ul {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    list-style: none;
+    font-weight: 700;
+    margin: 1rem 0;
+  }
+  
+
+  .cart_item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;    
+  }
+  
+  .cart_img {
+    width: 80px;
+  }
+
+  .cart_logic{
+    margin: 10rem 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr  1fr 2fr;
+  }
+
+  .cart_close{
+    background: none;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    color: $BudgetGre;
+    display: inline-block;
+    width: 90%;
+    text-align: right;
+    margin-top:  1rem;
+  }
+  .cart_buy {
+    text-decoration: none;
+    background: #fff;
+    color: $BudgetBlu;
+    bottom: 0;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 14px;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: solid 2px $BudgetBlu;
+    transition: .1s ease-in;
+  }
+  
+  .cart_buy a {
+    color: $BudgetBlu;
+    transition: color 0.1s ease-in; /* Agrega una transición al cambio de color */
+  }
+  
+  .cart_buy::after {
+    content: "";
+    background: $gradiente; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    left: 0;
+    right: 0;
+    top: -100%;
+    bottom: 100%;
+    transition: all 0.5s;
+  }
+  .cart_buy:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.2s;
+  }
+  
+  .cart_buy:hover {
+    color: #fff; /* Cambia el color del texto en hover */
+  }
+  .cart_total_cash{
+    font-size: 2rem;
+  }
+  .cart_total{
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: 500px) {
+    .carrito_container{
+      width: 100%;
+      box-shadow: $shadow;
+    }
+  }

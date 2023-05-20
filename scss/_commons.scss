@@ -16,15 +16,15 @@ body{
     width: 100vw;
     overflow-x: hidden;
 }
-a{
+ a{
   text-decoration: none;
   color: $BudgetGre;
   font-weight: 700;
 }
-a:visited {
-  color: inherit;
+ a:visited {
+  text-decoration: none;
 }
-a:hover{
+ a:hover{
   color: $BudgetBlu;
   transition: .4s;
 }
@@ -33,6 +33,13 @@ a:hover{
   height: 4rem;
   width: 100%;
   margin: 20px 2rem;
+  a {
+    color: $BudgetGre;
+  }
+  a:hover{
+    color: $BudgetBlu;
+    transition: .4s;
+  }
 }
 
 .title_section{

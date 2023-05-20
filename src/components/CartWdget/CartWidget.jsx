@@ -1,16 +1,26 @@
+
+import React, { useState } from 'react';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom'
+import CarritoComponent from '../Cart/Cart';
 
 function CartWidget() {
+  const [showCarrito, setShowCarrito] = useState(false);
+
+  const handleToggleCarrito = () => {
+    setShowCarrito(!showCarrito);
+  };
+
   return (
-    <li className="nav-content-item">
-      <Link to="/cart" className='a_nav nav-content-link'>
-        <FontAwesomeIcon icon={faShoppingCart} className='cart'/>
-        <p className="count">0</p>
-      </Link>
-    </li>
+    <>
+      <li className="nav-content-item">
+          <FontAwesomeIcon onClick={handleToggleCarrito} className='a_nav nav-content-link' icon={faShoppingCart} style={{cursor: 'pointer'}}/>
+          <p className="count">0</p>
+      </li>
+      {showCarrito && <CarritoComponent onClose={handleToggleCarrito} />}
+    </>
   );
 }
 
 export default CartWidget;
+
