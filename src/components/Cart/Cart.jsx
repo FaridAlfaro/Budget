@@ -1,44 +1,7 @@
-// import React, { useState, useEffect } from 'react';
-// import { useLocation, useParams } from 'react-router-dom';
-
-// const CarritoComponent = () => {
-//   const [showCarrito, setShowCarrito] = useState(false);
-//   const { carrito } = useParams();
-//   const location = useLocation();
-
-//   useEffect(() => {
-//     if (carrito === 'Carrito') {
-//       setShowCarrito(true);
-//     } else {
-//       setShowCarrito(false);
-//     }
-//   }, [carrito]);
-
-//   const handleCloseCarrito = () => {
-//     setShowCarrito(false);
-//   };
-
-//   return (
-//     <>
-//     <h1>Carrito</h1>
-//       {showCarrito && (
-//         <div className="carrito-container" style={{ right: 0 }}>
-//           {/* Contenido del carrito */}
-//           <h2>Carrito de Compras</h2>
-//           {/* Aquí puedes agregar la lógica y los elementos necesarios para mostrar los productos del carrito */}
-//           <button onClick={handleCloseCarrito}>Cerrar Carrito</button>
-//         </div>
-//       )}
-//     </>
-//   );
-// };
-
-// export default CarritoComponent;
-
 import React from 'react';
 import image1 from '../../../img/items/switch-normal.webp'
 import { Link } from 'react-router-dom';
-const CarritoComponent = ({ onClose }) => {
+const Cart = ({ onClose }) => {
   return (
     <div className="carrito_container">
     <h4 className='cart_title' >Carrito</h4>
@@ -66,4 +29,4 @@ const CarritoComponent = ({ onClose }) => {
   );
 };
 
-export default CarritoComponent;
+export default Cart;

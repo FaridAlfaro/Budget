@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import CarritoComponent from '../Cart/Cart';
+import Cart from '../Cart/Cart';
 
 function CartWidget() {
   const [showCarrito, setShowCarrito] = useState(false);
@@ -17,7 +16,7 @@ function CartWidget() {
           <FontAwesomeIcon onClick={handleToggleCarrito} className='a_nav nav-content-link' icon={faShoppingCart} style={{cursor: 'pointer'}}/>
           <p className="count">0</p>
       </li>
-      {showCarrito && <CarritoComponent onClose={handleToggleCarrito} />}
+      {showCarrito && <Cart onClose={handleToggleCarrito} />}
     </>
   );
 }
