@@ -1,23 +1,26 @@
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import CartButton from "../CartButton/CartButton";
 import ItemCount from "../ItemCount/ItemCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../Context/CartContext";
 function ItemDetail({ productos }) {
     if (!productos) {
       return <LoadingSpinner/>
     }
   
-    const { image, name, price, description, stock} = productos;
+    const { image, name, price, description, stock, id} = productos;
     const precio_pesos = productos.price*490
     const precio_pesos_cuotas = productos.price*490*1.5
     const precio_usd = productos.price*1.5
-    
+    const { AddToCart, isInCart } = useContext(CartContext)
+    console.log( isInCart(id) )
     const [quantity, setQuantity] = useState(1)
     const handleAddCart = () =>{
-      console.log({
+      const AddCart = {
         ...productos, 
         quantity
-      })
+      }
+      AddToCart(AddCart)
     }
     return (
       <div>
@@ -37,12 +40,17 @@ function ItemDetail({ productos }) {
               <p className="info_price"> ARS {precio_pesos_cuotas}</p>
               <p className="info_price">USD {precio_usd}</p>
             </div>
-            <ItemCount 
-                  quantity={quantity}
-                  setQuantity={setQuantity}
-                  stock={stock}
-            />
-            <CartButton/>
+            
+            {
+              isInCart(id)
+                          ? <h2>Ir a Comprar</h2>
+                          : <ItemCount 
+                              quantity={quantity}
+                              setQuantity={setQuantity}
+                              stock={stock}
+                              AddCart={handleAddCart}
+                            />
+            }
         </div>       
       </div>
       <div className="info_description">

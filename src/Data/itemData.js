@@ -7,7 +7,7 @@ const ITEMS_DATA = [
         image: "https://i.ibb.co/bzGQvqW/switchminiblue.png",
         price: 210,
         category: "Consolas",
-        stock: 24,
+        stock: 1,
         inventoryStatus: "INSTOCK",
         rating: 5,
       },

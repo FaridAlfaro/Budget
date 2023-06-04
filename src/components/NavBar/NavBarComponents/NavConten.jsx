@@ -19,7 +19,7 @@ function NavConten() {
               <FontAwesomeIcon icon={faUserCircle} />
               <span className="login-text">
                 Ingresar<strong>Unirse</strong>
-              </span>{" "}
+              </span>{""}
               <span className="item-arrow" />
               <ul className="ul_nav login-list">
                 <li className="login-list-item">

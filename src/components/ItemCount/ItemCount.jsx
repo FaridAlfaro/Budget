@@ -1,5 +1,5 @@
 import CartButton from "../CartButton/CartButton"
-function ItemCount({quantity, setQuantity, stock}){
+function ItemCount({quantity, setQuantity, stock, AddCart}){
 
     const handleRemove = () =>{
         quantity > 1 && setQuantity(quantity - 1)
@@ -12,7 +12,7 @@ function ItemCount({quantity, setQuantity, stock}){
             <button onClick ={handleRemove} className="count_btn remove">-</button>    
             <span className="counter">{quantity}</span>
             <button onClick ={handleAdd} className="count_btn add">+</button>
-            <CartButton/>
+            <CartButton AddCart={AddCart}/>
         </div>
         
     )
