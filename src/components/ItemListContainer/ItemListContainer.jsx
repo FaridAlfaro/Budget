@@ -5,7 +5,8 @@ import Title from "../Title section/Title";
 import { useParams, useSearchParams } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import NotFound from "../NotFound/NotFound";
-
+import {collection, getDocs, query, where} from "firebase/firestore"
+import { db } from "../../firebase/config";
 function ItemListContainer() {
   const [searchParams] = useSearchParams();
   const [productos, setProductos] = useState(null);
@@ -16,26 +17,46 @@ function ItemListContainer() {
   
   useEffect(() => {
     setIsLoading(true);
-
-    pedirDatos()
-      .then((data) => {
-        if (search) {
-          setProductos(
-            data.filter((el) =>
-              el.name.toLowerCase().includes(search.toLowerCase())
-            )
-          );
-        } else if (!categoryId) {
-          setProductos(data);
-        } else {
-          setProductos(data.filter((el) => el.category === categoryId));
-        }
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setIsLoading(false);
-      });
+    
+    const productosRef = collection(db, "products")
+    const q = categoryId
+                        ? query(productosRef, where("category", "==", categoryId))
+                        : productosRef
+    getDocs(q)
+                          .then((res) => {
+                            const docs = res.docs.map((doc) => {
+                              return {
+                                ...doc.data(),
+                                id: doc.id
+                              }
+                            })
+                            setProductos(docs)
+                            setIsLoading(false)
+                          })
+                          .catch((error) => {
+                            console.log(error);
+                            setIsLoading(false);
+                          })
+    
+    // pedirDatos()
+    //   .then((data) => {
+    //     if (search) {
+    //       setProductos(
+    //         data.filter((el) =>
+    //           el.name.toLowerCase().includes(search.toLowerCase())
+    //         )
+    //       );
+    //     } else if (!categoryId) {
+    //       setProductos(data);
+    //     } else {
+    //       setProductos(data.filter((el) => el.category === categoryId));
+    //     }
+    //     setIsLoading(false);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setIsLoading(false);
+    //   });
   }, [categoryId, search]);
 
   let title = null;

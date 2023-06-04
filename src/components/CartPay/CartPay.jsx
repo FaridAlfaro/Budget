@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../Context/CartContext';
+import empty from '../../../img/Persons/1.svg'
 function CartPay(){
     const { cart, totalCart, remove } = useContext(CartContext);
     return(  
@@ -18,14 +19,22 @@ function CartPay(){
         cart.map((producto) => (
           <div className="cart_item cart_item_buy" key={producto.id}>
             <img className="cart_img cart_img_buy" src={producto.image} alt="" />
-            <h4 className="cart_item_title cart_item_title_buy">{producto.name}</h4>
+            <h4 className="cart_item_title cart_item_title_buy">{producto.name} - {producto.color} - {producto.year} - {producto.resolution} - {producto.memory} - {producto.ram} - {producto.cpu} - {producto.dimensions} </h4>
             <p className="cart_price cart_price_buy">{producto.price}</p>
             <p className="cart_num cart_num_buy">{producto.quantity}</p>
             <button className='cart_remove cart_remove_buy' onClick={()=> {remove(producto.id)}}><FontAwesomeIcon className='icon_remove' icon={faTrash} /></button>
           </div>
         ))
       ) : (
-        <p className="buy_empty">Vacío</p>
+        <div className="buy_empty_max">
+            <div className="buy_empty">
+                <p className="buy_empty_title">Tu carrito esta vacio</p>
+                    <Link to={'/'}>
+                        <button className='buy_empty_btn'>Ir de compras</button>
+                    </Link>
+            </div>
+            <img src={empty} alt="" className='empty'/>
+        </div>
       )}
       <div className="buy_logic">
         <h4 className="buy_total">Total:</h4>

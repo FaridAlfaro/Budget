@@ -3,12 +3,13 @@ import CartButton from "../CartButton/CartButton";
 import ItemCount from "../ItemCount/ItemCount";
 import { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
+import { Link } from "react-router-dom";
 function ItemDetail({ productos }) {
     if (!productos) {
       return <LoadingSpinner/>
     }
   
-    const { image, name, price, description, stock, id} = productos;
+    const { image, name, price, description, stock, id, color, year, resolution, memory, ram, cpu, dimensions} = productos;
     const precio_pesos = productos.price*490
     const precio_pesos_cuotas = productos.price*490*1.5
     const precio_usd = productos.price*1.5
@@ -24,11 +25,14 @@ function ItemDetail({ productos }) {
     }
     return (
       <div>
+        <h3 className="info_producto">{name} {color} {memory} {ram} </h3>
         <div className="info">
-        <img src={image} alt="" className="info_img" />
+          <div className="info_img_contain">
+            <img src={image} alt="" className="info_img" />
+          </div>
         <div className="info_info">
             <div className="info_text">
-                <h3 className="info_name">{name}</h3>
+                <h3 className="info_name">Precios especiales</h3>
             </div>
             <div className="info_prices">
               <h4 className="info_mp">Oferta un solo pago</h4>
@@ -40,10 +44,13 @@ function ItemDetail({ productos }) {
               <p className="info_price"> ARS {precio_pesos_cuotas}</p>
               <p className="info_price">USD {precio_usd}</p>
             </div>
+            <div className="info_text">
+                <h3 className="info_name">Formas de pago</h3>
+            </div>
             
             {
               isInCart(id)
-                          ? <h2>Ir a Comprar</h2>
+                          ? <Link to={'/buy'}><h2>Ir a Comprar</h2></Link> 
                           : <ItemCount 
                               quantity={quantity}
                               setQuantity={setQuantity}
@@ -53,7 +60,7 @@ function ItemDetail({ productos }) {
             }
         </div>       
       </div>
-      <div className="info_description">
+      {/* <div className="info_description">
         <h3 className="info_name">{name}</h3>
         <p className="">{description}</p>
         <div className="caracteristicas">
@@ -66,7 +73,7 @@ function ItemDetail({ productos }) {
               <li className="carac_item">Cámara:</li>
             </ul>
         </div>
-      </div> 
+      </div>  */}
       </div>
       
       

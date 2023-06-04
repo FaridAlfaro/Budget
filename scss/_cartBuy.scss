@@ -37,8 +37,40 @@
 .cart_remove_buy{
 
 }
+.buy_empty_max{
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
 .buy_empty{
-
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.buy_empty_title{
+    font-size: 2rem;
+}
+.buy_empty_btn{
+    background: $gradiente;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 14px;
+    margin: 1rem 0;
+    transition: .3s;
+}
+.empty{
+    width: 500px;
+    border-radius: 100px;
+    padding: 2rem;
+    background-color: #0f4e6823;
+}
+.buy_empty_btn:hover{
+    transform: scale(1.2);
 }
 .buy_logic{
 

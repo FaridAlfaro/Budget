@@ -19,6 +19,7 @@ const Cart = ({ onClose }) => {
           <li className="cart_ll">Precio</li>
           <li className="cart_ll">Cantidad</li>
         </ul>
+        <div className="cart_items_content">
         {cart.length > 0 ? (
           cart.map((producto) => (
             <div className="cart_item" key={producto.id}>
@@ -26,12 +27,13 @@ const Cart = ({ onClose }) => {
               <h4 className="cart_item_title">{producto.name}</h4>
               <p className="cart_price">{producto.price}</p>
               <p className="cart_num">{producto.quantity}</p>
-              <button className='cart_remove' onClick={()=> {remove(producto.id)}}><FontAwesomeIcon icon={faTrash} /></button>
+              <button className='cart_remove' onClick={()=> {remove(producto.id)}}><FontAwesomeIcon className='icon_remove' icon={faTrash} /></button>
             </div>
           ))
         ) : (
-          <p className="cart_empty">Vacío</p>
+          <p className="cart_empty"> Tu carrito esta vacio</p>
         )}
+        </div>
         <div className="cart_logic">
           <h4 className="cart_total">Total:</h4>
           <p className="cart_total_cash">${totalCart()}</p>

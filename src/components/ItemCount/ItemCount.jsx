@@ -8,9 +8,9 @@ function ItemCount({quantity, setQuantity, stock, AddCart}){
         quantity < stock && setQuantity(quantity + 1)
     }
     return(
-        <div>
+        <div className="counter">
             <button onClick ={handleRemove} className="count_btn remove">-</button>    
-            <span className="counter">{quantity}</span>
+            <span className="counter_num">{quantity}</span>
             <button onClick ={handleAdd} className="count_btn add">+</button>
             <CartButton AddCart={AddCart}/>
         </div>

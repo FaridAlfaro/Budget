@@ -18,6 +18,8 @@
 }
 .carrito_detail{
     padding: 20px;
+    height: auto;
+    max-height: inherit;
 }
   
   .cart_ul {
@@ -28,7 +30,10 @@
     margin: 1rem 0;
   }
   
-
+  .cart_items_content{
+    max-height: 300px;
+    overflow-y: scroll;
+  }
   .cart_item {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr .1fr;    
@@ -39,9 +44,15 @@
   }
 
   .cart_logic{
-    margin: 10rem 0 0 0;
+    border-top: solid 5px $BudgetGre;
+    padding-top: 1.4rem;
+    margin: 5rem 0 0 0;
     display: grid;
     grid-template-columns: 1fr  1fr 2fr;
+  }
+  .cart_empty{
+    font-size: 1.4rem;
+    font-weight: 700;
   }
 
   .cart_close{

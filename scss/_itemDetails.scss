@@ -1,8 +1,19 @@
 .info_img {
-  height: 70vh;
-  -webkit-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.info_img_contain {
+  height:450px;
+  width: 450px;
+  -webkit-box-shadow: 0px 0px 50px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 50px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 50px 2px rgba(0, 0, 0, 0.25);
+}
+.info_producto{
+  font-size: 2rem;
+  margin: 2vh 160px;
 }
 
 .info_info {
@@ -49,18 +60,6 @@
   margin-left: 0.5rem;
 }
 
-.cart_button {
-  background: $gradiente;
-  font-size: 1rem;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  border: none;
-  border-radius: 14px;
-  -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-}
 
 .cart_text {
   color: #fff;
