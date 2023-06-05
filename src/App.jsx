@@ -13,6 +13,10 @@ import ItemDetailContainer from "./components/ItemDetailContainer/itemsDetailCon
 import SearchContainer from "./components/SearchContainer/SearchContainer";
 import { CartProvider } from "./components/Context/CartContext";
 import CartPay from "./components/CartPay/CartPay";
+import Login from "./components/Login/Login";
+import Register from "./components/Login/Register";
+import { AuthProvider } from "./components/Context/Authentication";
+import Checkout from "./components/Checkout/Checkout";
 function App() {
   useEffect(() => {
     AOS.init({
@@ -20,21 +24,26 @@ function App() {
     });
   }, []);
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <NavBar />
-          <Routes>
-            <Route path="/" element={ <ItemListContainer/> }/>
-            <Route path='/productos/:categoryId' element={ <ItemListContainer/> }/>
-            <Route path='/search' element={ <SearchContainer/> }/>
-            <Route path='/buy' element={ <CartPay/> }/>
-            <Route path='/productos/info/:productoId' element={ <ItemDetailContainer/> }/>
-            <Route path="/Home" element={ <Home/> }/>
-            {/* <Route path="*" element={<Navigate to={'/'}/>}/> */}
-          </Routes>
-        <Footer />
-      </BrowserRouter>
-    </CartProvider>
+    <AuthProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <NavBar />
+            <Routes>
+              <Route path="/" element={ <ItemListContainer/> }/>
+              <Route path='/productos/:categoryId' element={ <ItemListContainer/> }/>
+              <Route path='/search' element={ <SearchContainer/> }/>
+              <Route path='/buy' element={ <CartPay/> }/>
+              <Route path='/productos/info/:productoId' element={ <ItemDetailContainer/> }/>
+              <Route path="/Home" element={ <Home/> }/>
+              <Route path="/login" element={ <Login/> }/>
+              <Route path="/register" element={ <Register/> }/>
+              <Route path='/checkout' element={ <Checkout/> }/>
+              {/* <Route path="*" element={<Navigate to={'/'}/>}/> */}
+            </Routes>
+          <Footer />
+        </BrowserRouter>
+      </CartProvider>
+    </AuthProvider>
   );
 }
 

@@ -7,6 +7,7 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import NotFound from "../NotFound/NotFound";
 import {collection, getDocs, query, where} from "firebase/firestore"
 import { db } from "../../firebase/config";
+import BuyEmpty from "../BuyEmpty/BuyEmpty";
 function ItemListContainer() {
   const [searchParams] = useSearchParams();
   const [productos, setProductos] = useState(null);
@@ -72,10 +73,10 @@ function ItemListContainer() {
   if (isLoading) {
     content = <LoadingSpinner />;
   } else if (productos.length === 0) {
-    content = <NotFound />;
+    content = <BuyEmpty title='No hay nada por aquí...' btn='Ver productos' />;
   } else {
     content = (
-      <Title title={title} linkdir="/productos" link="ver todos" width="110px">
+      <Title title={title} linkdir="/" link="ver todos" width="110px">
         <ItemList productos={productos} />
       </Title>
     );

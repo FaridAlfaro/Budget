@@ -20,17 +20,10 @@ body {
 
 a {
   text-decoration: none;
-  color: #00b80f;
-  font-weight: 700;
 }
 
 a:visited {
   text-decoration: none;
-}
-
-a:hover {
-  color: #00aeb8;
-  transition: 0.4s;
 }
 
 .title_contain {
@@ -230,13 +223,12 @@ a:hover {
   z-index: 10;
 }
 .container_logo .nav-content .nav-content-list .nav-content-item .login-list .login-list-item {
+  color: rgb(2, 0, 36);
   padding: 15px 20px;
 }
 .container_logo .nav-content .nav-content-list .nav-content-item .login-list .login-list-item:hover {
-  background: #00aeb8;
-}
-.container_logo .nav-content .nav-content-list .nav-content-item .login-list .login-list-item:hover a {
   color: #fff;
+  background: #00aeb8;
 }
 .container_logo .nav-content .nav-content-list .nav-content-item:nth-child(2):hover .heart {
   color: #00aeb8;
@@ -245,10 +237,11 @@ a:hover {
   color: #00aeb8;
 }
 .container_logo .nav-content .nav-content-list .account-login .login-text {
+  color: rgb(2, 0, 36);
   align-items: end;
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 1rem;
   margin-left: 5px;
 }
 @media (max-width: 991px) {
@@ -256,8 +249,12 @@ a:hover {
     display: none;
   }
 }
-.container_logo .nav-content .nav-content-list .account-login .login-text strong {
+.container_logo .nav-content .nav-content-list .account-login .login-text strong a {
+  color: rgb(2, 0, 36);
   display: block;
+}
+.container_logo .nav-content .nav-content-list .account-login .login-text strong:visited {
+  color: rgb(2, 0, 36);
 }
 .container_logo .nav-content .nav-content-list .nav-content-link {
   border-radius: 3px;

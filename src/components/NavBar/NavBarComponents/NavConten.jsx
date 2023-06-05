@@ -1,7 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUserCircle, faHeart} from '@fortawesome/free-solid-svg-icons';
 import CartWidget from '../../CartWdget/CartWidget';
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { Authentication } from '../../Context/Authentication';
+
 function NavConten() {
+  const { user, logout } = useContext(Authentication);
     return(
       <nav className="nav-content">
         <ul className="nav-content-list ul_nav">
@@ -16,21 +21,21 @@ function NavConten() {
                 type="checkbox"
                 name="menu"
               />
-              <FontAwesomeIcon icon={faUserCircle} />
-              <span className="login-text">
-                Ingresar<strong>Unirse</strong>
-              </span>{""}
+              {user.logged ?
+                  <>
+                    <FontAwesomeIcon icon={faUserCircle} />
+                  </>
+                           : <>
+                           <span className="login-text">
+                           <Link className="login-text"to={'/login'}>Ingresar<strong> <Link to={'/register'}>Unirse</Link></strong></Link>
+                         </span>{""}
+                         </>
+              }
               <span className="item-arrow" />
               <ul className="ul_nav login-list">
-                <li className="login-list-item">
-                  <a href="#" className='a_nav'>Mi cuenta</a>
-                </li>
-                <li className="login-list-item">
-                  <a href="#" className='a_nav'>Unirse</a>
-                </li>
-                <li className="login-list-item">
-                  <a href="#" className='a_nav'>Cerrar sesión</a>
-                </li>
+                  <Link to={'/account'}><li className="login-list-item">Mi cuenta</li></Link>
+                  <Link to={'/register'}><li className="login-list-item">Unirse</li></Link>
+                  <button style={{cursor:'pointer', border:'none', width:'100%', textAlign:'left'}} className='login-list-item' onClick={()=> logout()}>Cerrar sesión</button>
               </ul>
             </label>
           </li>

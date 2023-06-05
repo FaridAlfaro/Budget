@@ -1,4 +1,4 @@
-import ITEMS_DATA from "../Data/itemData"
+import ITEMS_DATA from "../Data/ITEMS_DATA"
 
 const pedirDatos = (bool) =>{
     return new Promise((resolve, reject) =>{

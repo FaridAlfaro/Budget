@@ -18,16 +18,11 @@ body{
 }
  a{
   text-decoration: none;
-  color: $BudgetGre;
-  font-weight: 700;
 }
  a:visited {
   text-decoration: none;
 }
- a:hover{
-  color: $BudgetBlu;
-  transition: .4s;
-}
+
 .title_contain{
   display: inline-block;
   height: 4rem;
