@@ -34,10 +34,7 @@ body{
 
 
 .title_contain{
-  display: inline-block;
-  height: 4rem;
-  width: 100%;
-  margin: 20px 2rem;
+  margin: 7vh 5vh;
   a {
     color: $BudgetGre;
   }
@@ -46,16 +43,25 @@ body{
     transition: .4s;
   }
 }
-
-.title_section{
+.title_sub{
+  margin-bottom: 1rem;
+  
+}
+.title_section {
+  display: inline;
   font-size: 1.5rem;
+  margin-right: 1rem;
   text-align: left;
   @media (min-width: 1400px) {
     width: 100%;
     max-width: 600px;
+  }
 }
-}
-.sub{
+
+.sub {
+  display: flex;
+  flex-direction: column-reverse;
   height: 1rem;
   background: $gradiente;
+  width: fit-content;
 }

@@ -7,7 +7,7 @@ function HoverMenu(props) {
     <li className="">
       <div className="category-first-list">
         {props.categorias.map((categoria) => (
-          <div className='all-category-list-item'>
+          <div className='all-category-list-item' key={categoria.id}>
             <Link
                 key={categoria.id}  // Agregamos la clave única para cada enlace
                 to={`/productos/${categoria.id}`}

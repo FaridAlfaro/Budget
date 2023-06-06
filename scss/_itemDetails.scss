@@ -1,23 +1,13 @@
 .info_img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  object-fit: contain;
+  width: 500px;
+  height: 500px;
 }
 
-.info_img_contain {
-  height:450px;
-  width: 450px;
-  -webkit-box-shadow: 0px 0px 50px 2px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 0px 50px 2px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 0px 50px 2px rgba(0, 0, 0, 0.25);
-}
-.info_producto{
-  font-size: 2rem;
-  margin: 2vh 160px;
-}
 
 .info_info {
-  margin: 2vh 20vh;
+  // margin: 2vh 20vh;
+  max-width: 400px;
   display: flex;
   gap: 1rem;
   flex-direction: column;
@@ -28,12 +18,14 @@
   display: flex;
   flex-direction: row;
   margin: 2vh;
-  justify-content: space-evenly;
+  gap: 10rem;
+  align-items: center;
 }
 
 .info_name {
   font-size: 2rem;
   margin-top: 2rem;
+  
 }
 
 .info_copy {
@@ -99,8 +91,65 @@
 
 .info_description{
   width: 80%;
-  margin: 0 100px;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   gap: 1.4rem;
+}
+
+.info_description {
+  background-color: #cacaca86;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.info_name {
+  /* Estilos para el nombre */
+}
+
+.info_description_text {
+  /* Estilos para la descripción */
+}
+
+.caracteristicas {
+  background-color: #fff;
+  padding: 1rem;
+  border-left: solid 10px $BudgetBlu;
+  border-radius: 0 1rem 1rem 0;
+  /* Estilos para el contenedor de características */
+}
+
+.carac_title {
+  font-size: 1.4rem;
+}
+
+.carac_items {
+  list-style: none;
+  padding: 1rem;
+  /* Estilos para la lista de características */
+}
+
+.carac_item {
+  margin: .5rem 0;
+}
+
+
+.item_detail_cnt{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  min-height: 100vh;
+}
+.buy_button{
+  color: #fff;
+  background: $gradiente;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.buy_button:hover{
+  scale: 1.02;
+  transition: ease-in-out .3s;
 }

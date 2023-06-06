@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Authentication } from "../Context/Authentication";
 
 const Socials = ({ type }) => {
-  const { loginWithGoogle } = useContext(Authentication);
+  const { loginWithGoogle, loginWithFacebook, loginWithTwitter  } = useContext(Authentication);
 
   if (type === "socials") {
     return (
@@ -27,15 +27,23 @@ const Socials = ({ type }) => {
       </div>
     );
   } else if (type === "login") {
+    const handleLoginWithFacebook = () => {
+      loginWithFacebook();
+    }
+    const handleLoginWithTwitter = () => {
+      loginWithTwitter();
+    }
     const handleLoginWithGoogle = () => {
       loginWithGoogle();
-    };
+    
+    }
+    ;
 
     return (
         <div className="login_with">           
-            <button className="login_google" onClick={loginWithGoogle}><FontAwesomeIcon icon={faGoogle} className="login_google_icon"/></button>
-            <button className="login_google" ><FontAwesomeIcon icon={faFacebook} className="login_google_icon" /></button>
-            <button className="login_google" ><FontAwesomeIcon icon={faTwitter} className="login_google_icon" /></button>
+            <button className="login_google" onClick={handleLoginWithGoogle}><FontAwesomeIcon icon={faGoogle} className="login_google_icon"/></button>
+            <button className="login_google" onClick={handleLoginWithFacebook}><FontAwesomeIcon icon={faFacebook} className="login_google_icon" /></button>
+            <button className="login_google" onClick={handleLoginWithTwitter}><FontAwesomeIcon icon={faTwitter} className="login_google_icon" /></button>
         </div>
     );
   } else {

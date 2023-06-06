@@ -1,12 +1,11 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { Link, Navigate } from "react-router-dom"
-import { useContext } from "react"
 import { Authentication } from "../Context/Authentication"
 import RegisterImg from "../../../img/Persons/2.svg"
 import Socials from "../Socials/Socials"
 
 function Register () {
-    const { registerm, user } = useContext(Authentication)
+    const { user } = useContext(Authentication)
 
     const [values, setValues] = useState({
         email: '',

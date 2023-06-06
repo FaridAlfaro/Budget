@@ -27,8 +27,8 @@ function NavConten() {
                   </>
                            : <>
                            <span className="login-text">
-                           <Link className="login-text"to={'/login'}>Ingresar<strong> <Link to={'/register'}>Unirse</Link></strong></Link>
-                         </span>{""}
+  <Link className="login-text" to={'/login'}>Ingresar</Link><strong> <Link to={'/register'}>Unirse</Link></strong>
+</span>
                          </>
               }
               <span className="item-arrow" />
@@ -40,9 +40,7 @@ function NavConten() {
             </label>
           </li>
           <li className="nav-content-item">
-            <a className="nav-content-link a_nav" href="#">
-              <FontAwesomeIcon icon={faHeart} className='heart'/>
-            </a>
+          <Link to={'/like'}className="nav-content-link a_nav"><FontAwesomeIcon icon={faHeart} className='heart'/></Link>
           </li>
           <CartWidget/>
         </ul>

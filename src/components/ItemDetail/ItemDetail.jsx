@@ -1,9 +1,10 @@
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-import CartButton from "../CartButton/CartButton";
 import ItemCount from "../ItemCount/ItemCount";
 import { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
 import { Link } from "react-router-dom";
+import GeneralDescription from "../GeneralDescription/GeneralDescription";
+
 function ItemDetail({ productos }) {
     if (!productos) {
       return <LoadingSpinner/>
@@ -24,15 +25,15 @@ function ItemDetail({ productos }) {
       AddToCart(AddCart)
     }
     return (
-      <div>
-        <h3 className="info_producto">{name} {color} {memory} {ram} </h3>
+      <div className="item_detail_cnt">
+        
         <div className="info">
           <div className="info_img_contain">
             <img src={image} alt="" className="info_img" />
           </div>
         <div className="info_info">
             <div className="info_text">
-                <h3 className="info_name">Precios especiales</h3>
+              <h3 className="info_name">{name} {color} {memory} {ram} </h3>
             </div>
             <div className="info_prices">
               <h4 className="info_mp">Oferta un solo pago</h4>
@@ -50,7 +51,7 @@ function ItemDetail({ productos }) {
             
             {
               isInCart(id)
-                          ? <Link to={'/buy'}><h2>Ir a Comprar</h2></Link> 
+                          ? <Link to={'/buy'}><h3 className="buy_button">Ir a Comprar</h3></Link> 
                           : <ItemCount 
                               quantity={quantity}
                               setQuantity={setQuantity}
@@ -60,20 +61,7 @@ function ItemDetail({ productos }) {
             }
         </div>       
       </div>
-      {/* <div className="info_description">
-        <h3 className="info_name">{name}</h3>
-        <p className="">{description}</p>
-        <div className="caracteristicas">
-            <h4 className="carac_title">Caracteristicas</h4>
-            <ul className="carac_items">
-              <li className="carac_item">Almacenamiento:</li>
-              <li className="carac_item">Tamaño</li>
-              <li className="carac_item">Procesador:</li>
-              <li className="carac_item">Pantalla:</li>
-              <li className="carac_item">Cámara:</li>
-            </ul>
-        </div>
-      </div>  */}
+      <GeneralDescription productos={productos}/>
       </div>
       
       

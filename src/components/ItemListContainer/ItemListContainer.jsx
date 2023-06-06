@@ -63,7 +63,7 @@ function ItemListContainer() {
     content = <BuyEmpty title="No hay nada por aquí..." btn="Ver productos" />;
   } else {
     content = (
-      <Title title={title} linkdir="/" link="ver todos" width="110px">
+      <Title title={title} linkdir="/" link="ver todos" width="150px">
         <ItemList productos={productos} />
       </Title>
     );

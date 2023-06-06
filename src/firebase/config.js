@@ -1,9 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore"; // Corrección en la importación
-import { getAuth, GoogleAuthProvider } from "firebase/auth"
+import { getFirestore } from "firebase/firestore"; 
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider } from "firebase/auth"
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC8iUnlofnixIU6eX4mCtS_tHqxS5GSCOA",
   authDomain: "budget-tecnology.firebaseapp.com",
@@ -13,8 +11,9 @@ const firebaseConfig = {
   appId: "1:88340384121:web:5c3a438335a3eca87a07a8"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app)
 export const provider = new GoogleAuthProvider()
+export const facebookProvider = new FacebookAuthProvider();
+export const twitterProvider = new TwitterAuthProvider();

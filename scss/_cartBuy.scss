@@ -1,35 +1,44 @@
 .buy_container{
-    margin: 50px 12rem;
-    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 80vh;
 }
-.buy_title{
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
+
 .buy_ul{
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr .3fr;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    align-items: center;
     list-style: none;
     font-weight: 700;
     margin: 1rem 0;
 }
 .buy_detail{
+    gap: 2rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
 
 }
 .buy_ll{
 
 }
 .cart_item_buy {
-
+    border-left: solid 10px $BudgetGre;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
 }
 .cart_img_buy{
-    width: 160px;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
 }
 .cart_item_title_buy{
-
+    max-width: 300px;
 }
 .cart_price_buy{
-
+    font-weight: 700;
 }
 .cart_num_buy{
 
@@ -39,7 +48,7 @@
 }
 .buy_empty_max{
     height: 60vh;
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -73,11 +82,17 @@
     transform: scale(1.2);
 }
 .buy_logic{
-
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 1rem;
+   
 }
 .buy_total{
-
+    font-size: 2rem;
 }
 .buy_total_cash{
-
+    font-size: 2rem;
+    font-weight: 700;
 }

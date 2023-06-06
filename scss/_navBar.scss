@@ -112,6 +112,12 @@
       justify-content: space-between;
       padding: 0 15px;
       .nav-content-item {
+          &:nth-child(2):hover .heart {
+            color: $BudgetBlu;
+          }
+          &:hover .cart {
+            color: $BudgetBlu;
+          }
         align-items: center;
         display: flex;
         height: 40px;
@@ -166,14 +172,6 @@
               background: $BudgetBlu;
             }
           }
-        }
-      }
-      .nav-content-item {
-        &:nth-child(2):hover .heart {
-          color: $BudgetBlu;
-        }
-        &:hover .cart {
-          color: $BudgetBlu;
         }
       }
       .account-login { 
