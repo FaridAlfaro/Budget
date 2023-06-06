@@ -22,6 +22,16 @@ body{
  a:visited {
   text-decoration: none;
 }
+.link{
+  text-decoration: none;
+  color: $gradiente2;
+  font-weight: 700;
+  transition: ease-in-out .2s;
+}
+.link:hover{
+  color: $BudgetGre;
+}
+
 
 .title_contain{
   display: inline-block;

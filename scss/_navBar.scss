@@ -184,12 +184,12 @@
           flex-direction: column;
           font-size: 1rem;
           margin-left: 5px;
-          @media (max-width: 991px) {
-            display: none;
-          }
           strong a {
             color: $gradiente2;
             display: block;
+            @media (max-width: 991px) {
+              display: none;
+            }
           }
           strong:visited {
             color: $gradiente2;

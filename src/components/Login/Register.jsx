@@ -1,11 +1,12 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { useContext } from "react"
 import { Authentication } from "../Context/Authentication"
+import RegisterImg from "../../../img/Persons/2.svg"
+import Socials from "../Socials/Socials"
 
-
-const Register = () => {
-    const { register } = useContext(Authentication)
+function Register () {
+    const { registerm, user } = useContext(Authentication)
 
     const [values, setValues] = useState({
         email: '',
@@ -26,33 +27,42 @@ const Register = () => {
     }
 
     return (
+        
         <div className="login">
-            <div className="login-container">
-                <h2>Registrarme</h2>
-                <hr/>
-
-                <form onSubmit={handleSubmit}>
-                    <input 
-                        value={values.email}
-                        type="email" 
-                        className="form-control my-2" 
-                        placeholder="Email"
-                        name="email"
-                        onChange={handleInput}
-                    />
-                    <input 
-                        type="password" 
-                        value={values.password}
-                        className="form-control my-2" 
-                        placeholder="Contraseña"
-                        name="password"
-                        onChange={handleInput}
-                    />
-                    <button className="btn btn-primary" type="submit">Registrarme</button>
-                    <Link to="/login">Ya estoy registrado, iniciar sesión</Link>
-                </form>
-            </div>
+            {user.logged ?
+                <>
+                    <Navigate to={"/"}></Navigate>
+                </>
+                : <>
+                    <div className="login_cnt">
+                        <h2 className="login_title">Registrarme</h2>
+                        <form onSubmit={handleSubmit}>
+                            <input 
+                                value={values.email}
+                                type="email" 
+                                className="login_input" 
+                                placeholder="Email"
+                                name="email"
+                                onChange={handleInput}
+                            />
+                            <input 
+                                type="password" 
+                                value={values.password}
+                                className="login_input" 
+                                placeholder="Contraseña"
+                                name="password"
+                                onChange={handleInput}
+                            />
+                            <button className="login_btn" type="submit">Vamos!</button>
+                            <Link to="/login" className="link">Iniciar sesión</Link>
+                            <Socials type="login"/>
+                        </form>
+                    </div>
+                    <img src={RegisterImg} alt="" className="login_img2"/>
+            </>
+            }
         </div>
+        
     )
 }
 

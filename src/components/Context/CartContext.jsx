@@ -28,16 +28,20 @@ export const CartProvider = ({ children }) => {
     const _cart = cart.slice()
     const producto = _cart.find(e => e.id === id)
   }
-
+  const emptyCart = () => {
+    setCart([])
+  }
   return (
     <CartContext.Provider
       value={{
         cart,
+        emptyCart,
         AddToCart,
         isInCart,
         cartNum,
         totalCart,
-        remove
+        remove,
+        modCar
       }}
     >
       {children}

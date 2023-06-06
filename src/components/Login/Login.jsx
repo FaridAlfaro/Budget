@@ -1,10 +1,12 @@
 import { useContext, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { Authentication } from "../Context/Authentication"
+import LoginImg from "../../../img/Persons/3.svg"
+import Socials from "../Socials/Socials"
 
-
-const Login = () => {
-    const { login, loginWithGoogle } = useContext(Authentication)
+function Login () {
+    const { user } = useContext(Authentication);
+    
     const [values, setValues] = useState({
         email: '',
         password: ''
@@ -24,35 +26,44 @@ const Login = () => {
     }
 
     return (
-        <div className="buy_empty_max">
-            <div className="login-container">
-                <h2>Login</h2>
-                <hr/>
-
-                <form onSubmit={handleSubmit}>
-                    <input 
-                        value={values.email}
-                        type="email" 
-                        className="form-control my-2" 
-                        placeholder="Email"
-                        name="email"
-                        onChange={handleInput}
-                    />
-                    <input 
-                        type="password" 
-                        value={values.password}
-                        className="form-control my-2" 
-                        placeholder="Contraseña"
-                        name="password"
-                        onChange={handleInput}
-                    />
-                    <button className="" type="submit">Login</button>
-                    <Link to="/register" className="link">Registrarme</Link>
-                </form>
-                <button className="btn btn-primary" onClick={loginWithGoogle}>Ingresar con Google</button>
+        
+            <div className="login">
+                {user.logged ?
+                  <>
+                    <Navigate to={"/"}></Navigate>
+                  </>
+                : 
+                <>
+                <div className="login_cnt">
+                    <h4 className="login_title">Iniciar sesión</h4>
+                    <form onSubmit={handleSubmit}>
+                        <input 
+                            value={values.email}
+                            type="email" 
+                            className="login_input" 
+                            placeholder="Email"
+                            name="email"
+                            onChange={handleInput}
+                        />
+                        <input 
+                            type="password" 
+                            value={values.password}
+                            className="login_input" 
+                            placeholder="Contraseña"
+                            name="password"
+                            onChange={handleInput}
+                        />
+                        <button className="login_btn" type="submit">Vamos!</button>
+                        <p>Empezar con:</p>
+                        <Socials type="login"/>
+                        <Link to="/register" className="link">Registrarme</Link>
+                    </form>
+                </div>
+                <img src={LoginImg} alt="" className="login_img"/>
+                </>
+                }
             </div>
-        </div>
-    )
+    ) 
 }
 
 export default Login
