@@ -1,63 +1,50 @@
 import { useEffect, useState } from "react";
-import pedirDatos from "../../helpers/pedirDatos";
+import { useParams, useSearchParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase/config";
 import ItemList from "../ItemList/ItemList";
 import Title from "../Title section/Title";
-import { useParams, useSearchParams } from "react-router-dom";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-import NotFound from "../NotFound/NotFound";
-import {collection, getDocs, query, where} from "firebase/firestore"
-import { db } from "../../firebase/config";
 import BuyEmpty from "../BuyEmpty/BuyEmpty";
+
 function ItemListContainer() {
   const [searchParams] = useSearchParams();
   const [productos, setProductos] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId } = useParams();
-
   const search = searchParams.get("search");
-  
+
   useEffect(() => {
     setIsLoading(true);
-    
-    const productosRef = collection(db, "products")
+
+    const productosRef = collection(db, "products");
     const q = categoryId
-                        ? query(productosRef, where("category", "==", categoryId))
-                        : productosRef
+      ? query(productosRef, where("category", "==", categoryId))
+      : productosRef;
+
     getDocs(q)
-                          .then((res) => {
-                            const docs = res.docs.map((doc) => {
-                              return {
-                                ...doc.data(),
-                                id: doc.id
-                              }
-                            })
-                            setProductos(docs)
-                            setIsLoading(false)
-                          })
-                          .catch((error) => {
-                            console.log(error);
-                            setIsLoading(false);
-                          })
-    
-    // pedirDatos()
-    //   .then((data) => {
-    //     if (search) {
-    //       setProductos(
-    //         data.filter((el) =>
-    //           el.name.toLowerCase().includes(search.toLowerCase())
-    //         )
-    //       );
-    //     } else if (!categoryId) {
-    //       setProductos(data);
-    //     } else {
-    //       setProductos(data.filter((el) => el.category === categoryId));
-    //     }
-    //     setIsLoading(false);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setIsLoading(false);
-    //   });
+      .then((snapshot) => {
+        const docs = snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+
+        if (search) {
+          setProductos(
+            docs.filter((el) =>
+              el.name.toLowerCase().includes(search.toLowerCase())
+            )
+          );
+        } else {
+          setProductos(docs);
+        }
+
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setIsLoading(false);
+      });
   }, [categoryId, search]);
 
   let title = null;
@@ -72,8 +59,8 @@ function ItemListContainer() {
   let content = null;
   if (isLoading) {
     content = <LoadingSpinner />;
-  } else if (productos.length === 0) {
-    content = <BuyEmpty title='No hay nada por aquí...' btn='Ver productos' />;
+  } else if (productos && productos.length === 0) {
+    content = <BuyEmpty title="No hay nada por aquí..." btn="Ver productos" />;
   } else {
     content = (
       <Title title={title} linkdir="/" link="ver todos" width="110px">
@@ -86,4 +73,3 @@ function ItemListContainer() {
 }
 
 export default ItemListContainer;
-

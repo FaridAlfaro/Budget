@@ -1,44 +1,43 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Search() {
-  const searchRef = useRef()
-  const [, setSearchParams] = useSearchParams()
-  const handleSubmit = (e)=>{
-    e.preventDefault()
+  const navigate = useNavigate();
+  const searchRef = useRef();
 
-    const searchValue = searchRef.current.value
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate('/');
+      const searchValue = searchRef.current.value;
+      window.location.search = `?search=${searchValue}`;
+  };
 
-    setSearchParams({
-      search: searchValue
-    })
-  }
-    return(
-        <label className="open-search label_nav" htmlFor="open-search">
-        <FontAwesomeIcon icon={faSearch}  className='fa-search'/>
-        <input
+  return (
+    <label className="open-search label_nav" htmlFor="open-search">
+      <FontAwesomeIcon icon={faSearch} className="fa-search" />
+      <input
         className="input-open-search"
         id="open-search"
         type="checkbox"
         name="menu"
-        />
-        <div className="search">
-          <form onSubmit={handleSubmit}>
-            <button className="button-search" type='submit'>
-                <FontAwesomeIcon icon={faSearch} className='fa-search'/>
-            </button>
-            <input
-              ref={searchRef}
-              type="text"
-              placeholder="Encontrá aquello que buscas"
-              className="input-search"
+      />
+      <div className="search">
+        <form onSubmit={handleSubmit}>
+          <button className="button-search" type="submit">
+            <FontAwesomeIcon icon={faSearch} className="fa-search" />
+          </button>
+          <input
+            ref={searchRef}
+            type="text"
+            placeholder="Encontrá aquello que buscas"
+            className="input-search"
           />
         </form>
-        
-        </div>
+      </div>
     </label>
-    );
+  );
 }
-export default Search
+
+export default Search;
