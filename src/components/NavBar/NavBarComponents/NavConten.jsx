@@ -33,9 +33,15 @@ function NavConten() {
               }
               <span className="item-arrow" />
               <ul className="ul_nav login-list">
-                  <Link to={'/account'}><li className="login-list-item">Mi cuenta</li></Link>
-                  <Link to={'/register'}><li className="login-list-item">Unirse</li></Link>
-                  <button style={{cursor:'pointer', border:'none', width:'100%', textAlign:'left'}} className='login-list-item' onClick={()=> logout()}>Cerrar sesión</button>
+              {user.logged ?
+                  <>
+                    <Link to={'/account'}><li className="login-list-item">Mi cuenta</li></Link>
+                    <button style={{cursor:'pointer', border:'none', width:'100%', textAlign:'left'}} className='login-list-item' onClick={()=> logout()}>Cerrar sesión</button>
+                  </>
+                           : <>
+                           <Link to={'/register'}><li className="login-list-item">Unirse</li></Link>
+                         </>
+              }
               </ul>
             </label>
           </li>

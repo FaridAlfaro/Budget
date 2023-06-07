@@ -30,9 +30,14 @@ function ItemListContainer() {
         }));
 
         if (search) {
+          const lowerSearch = search.toLowerCase();
           setProductos(
             docs.filter((el) =>
-              el.name.toLowerCase().includes(search.toLowerCase())
+              Object.values(el).some(
+                (value) =>
+                  typeof value === "string" &&
+                  value.toLowerCase().includes(lowerSearch)
+              )
             )
           );
         } else {

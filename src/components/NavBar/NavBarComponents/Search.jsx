@@ -9,9 +9,9 @@ function Search() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/');
+    //navigate('/');
       const searchValue = searchRef.current.value;
-      window.location.search = `?search=${searchValue}`;
+      navigate(`/?search=${searchValue}`)
   };
 
   return (

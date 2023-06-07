@@ -1,36 +1,34 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import { collection, addDoc, writeBatch, query, where, doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
-import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Buy from "../../../img/Persons/2.svg";
 
 const schema = Yup.object().shape({
   nombre: Yup.string()
-    .required("Este campo es requerido")
+    .required("Campo obligatorio")
     .min(3, "El nombre es muy corto")
     .max(20, "El nombre es demasiado largo"),
   direccion: Yup.string()
-    .required("Este campo es requerido")
-    .min(6, "La direccion es muy corta")
-    .max(20, "La direccion es demasiado larga"),
+    .required("Campo obligatorio")
+    .min(6, "La dirección es muy corta")
+    .max(20, "La dirección es demasiado larga"),
   email: Yup.string()
-    .email("El email no es válido")
+    .email("Campo obligatorio")
     .required("Este campo es requerido")
 });
 
 const Checkout = () => {
   const { cart, totalCart, emptyCart } = useContext(CartContext);
-
   const [orderId, setOrderId] = useState(null);
 
   const generarOrden = async (values) => {
     const orden = {
       client: values,
-      items: cart.map(item => ({ id: item.id, nombre: item.nombre, cantidad: item.cantidad })),
+      productos: cart.map(productos => ({ id: productos.id, nombre: productos.name, cantidad: productos.quantity })),
       total: totalCart(),
       fyh: new Date()
     };
@@ -41,36 +39,34 @@ const Checkout = () => {
 
     const promesas = cart.map((productos) => {
       const ref = doc(productosRef, productos.id);
-      return getDoc(ref); // Utilizar getDoc en lugar de ref.get()
+      return getDoc(ref); 
     });
 
     const productos = await Promise.all(promesas);
-
     const outOfStock = [];
 
     productos.forEach((doc) => {
-      const item = cart.find((i) => i.id === doc.id);
+      const productos = cart.find((i) => i.id === doc.id);
       const stock = doc.data().stock;
 
-      if (stock >= item.cantidad) {
+      if (stock >= productos.cantidad) {
         batch.update(doc.ref, {
-          stock: stock - item.cantidad
+          stock: stock - productos.quantity
         });
       } else {
-        outOfStock.push(item);
+        outOfStock.push(productos);
       }
     });
 
     if (outOfStock.length === 0) {
-      addDoc(ordersRef, orden)
-        .then((docRef) => {
-          batch.commit();
-          setOrderId(docRef.id);
-          emptyCart();
-        })
-        .catch((error) => {
-          console.error("Error al generar la orden:", error);
-        });
+      try {
+        const docRef = await addDoc(ordersRef, orden);
+        batch.commit();
+        setOrderId(docRef.id);
+        emptyCart();
+      } catch (error) {
+        console.error("Error al generar la orden:", error);
+      }
     } else {
       console.log(outOfStock);
       alert("Hay items sin stock");

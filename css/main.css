@@ -928,15 +928,6 @@ a:visited {
   gap: 1rem;
   border-radius: 14px;
   overflow: hidden;
-  -webkit-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 0px 5px -2px rgba(0, 0, 0, 0.25);
-}
-
-.item-btn:hover {
-  animation: wipe-in-left;
-  animation-duration: 2s;
-  animation-fill-mode: both;
 }
 
 .item_info {
@@ -962,22 +953,55 @@ a:visited {
   font-weight: 700;
 }
 
+.item_btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 1rem;
+  align-items: left;
+  width: 100%;
+}
+
+.item_heart {
+  text-decoration: none;
+  background-color: #00aeb8;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  border: none;
+  border-radius: 14px;
+}
+
+.item_heart:hover {
+  background-color: #00b80f;
+  transition: ease-in 0.3s;
+}
+
+.item_heart_h {
+  padding: calc(1rem + 2px);
+  font-size: 1rem;
+}
+
+.item-btn:hover {
+  animation: wipe-in-left;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
 .item_btn {
   text-decoration: none;
   background: #fff;
   color: #00aeb8;
   bottom: 0;
+  width: 160px;
   z-index: 1;
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  margin: 1rem auto;
+  margin: auto;
   border-radius: 14px;
   padding: 1rem;
-  display: flex;
-  justify-content: center;
   align-items: center;
-  width: 80%;
   border: solid 2px #00aeb8;
   transition: 0.1s ease-in;
 }
@@ -1572,11 +1596,6 @@ a:visited {
   .login_img2 {
     width: 300px;
   }
-}
-.chackout {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
 }
 
 /*# sourceMappingURL=main.css.map */
