@@ -92,5 +92,21 @@
     .login_img2{
         width: 300px;
     }
-
+    .empty{
+        width: 300px;
+    }
+    .buy_empty_max {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 2rem;
+        align-items: center;
+        width: 100%;
+        height: 90vh;
+    }
+    .buy_empty{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
   }

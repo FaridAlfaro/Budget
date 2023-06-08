@@ -130,5 +130,10 @@
   @media (max-width: 500px) {
     .items{
       margin: 2vh;
+      width: 200px;
+      display: flex;
+    }
+   .item_btn {
+      width: 140px;
     }
   }

@@ -15,7 +15,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Login/Register";
 import { AuthProvider } from "./components/Context/Authentication";
 import Checkout from "./components/Checkout/Checkout";
-
+import Order from "./components/Order/Order";
 function App() {
   useEffect(() => {
     AOS.init({
@@ -38,6 +38,7 @@ function App() {
               <Route path="/login" element={ <Login/> }/>
               <Route path="/register" element={ <Register/> }/>
               <Route path='/checkout' element={ <Checkout/> }/>
+              <Route path="/order/:orderId" element={<Order />} />
               {/* <Route path="*" element={<Navigate to={'/'}/>}/> */}
             </Routes>
           <Footer />

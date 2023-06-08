@@ -9,7 +9,6 @@ function Search() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //navigate('/');
       const searchValue = searchRef.current.value;
       navigate(`/?search=${searchValue}`)
   };

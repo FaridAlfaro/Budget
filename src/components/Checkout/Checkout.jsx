@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
-import { Navigate, Link } from 'react-router-dom';
-import { collection, addDoc, writeBatch, query, where, doc, getDoc } from "firebase/firestore";
+import { useNavigate, Link } from 'react-router-dom';
+import { collection, addDoc, writeBatch, doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Buy from "../../../img/Persons/2.svg";
-
+import Order from "../Order/Order";
 const schema = Yup.object().shape({
   nombre: Yup.string()
     .required("Campo obligatorio")
@@ -24,7 +24,7 @@ const schema = Yup.object().shape({
 const Checkout = () => {
   const { cart, totalCart, emptyCart } = useContext(CartContext);
   const [orderId, setOrderId] = useState(null);
-
+  const navigate = useNavigate();
   const generarOrden = async (values) => {
     const orden = {
       client: values,
@@ -49,7 +49,7 @@ const Checkout = () => {
       const productos = cart.find((i) => i.id === doc.id);
       const stock = doc.data().stock;
 
-      if (stock >= productos.cantidad) {
+      if (stock >= productos.quantity) {
         batch.update(doc.ref, {
           stock: stock - productos.quantity
         });
@@ -64,6 +64,7 @@ const Checkout = () => {
         batch.commit();
         setOrderId(docRef.id);
         emptyCart();
+        navigate(`/order/${docRef.id}`);
       } catch (error) {
         console.error("Error al generar la orden:", error);
       }
@@ -75,12 +76,7 @@ const Checkout = () => {
 
   if (orderId) {
     return (
-      <div>
-        <h2>Tu compra se registró exitosamente!</h2>
-        <hr />
-        <p>Guardá tu número de orden: {orderId}</p>
-        <Link to="/">Volver</Link>
-      </div>
+      <Order/>
     );
   }
 
