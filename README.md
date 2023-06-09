@@ -1,4 +1,4 @@
-# Budget - Tienda de Electrónica con Precios Bajos
+# Budget - Tienda de Electrónica low cost
 
 Budget es un proyecto de una tienda de electrónica que se especializa en ofrecer productos a precios extremadamente bajos con un stock limitado. Está diseñada para generar una base de consumidores habituales, conectando con personas que pueden traer productos de electrónica del extranjero o buscar formas rentables de importar la mejor tecnología.
 
