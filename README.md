@@ -6,7 +6,7 @@ Budget es un proyecto de una tienda de electrónica que se especializa en ofrece
 
 - Precios bajos en productos de electrónica
 - Stock limitado
-- Pagos en efectivo
+- Pagos en efectivo (Necesitamos liquides en todo momento)
 - Descuentos por facilitar logística (pago en la moneda utilizada para importaciones, opción de no incluir la caja del producto)
 
 ## Detalles del código
