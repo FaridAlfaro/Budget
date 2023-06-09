@@ -128,12 +128,86 @@
   }
   
   @media (max-width: 500px) {
-    .items{
-      margin: 2vh;
-      width: 200px;
-      display: flex;
+    .item_list{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      // flex-direction: row;
+      // flex-wrap: wrap;
+      // justify-content: center;
+      // min-height: 80vh;
+  }
+  
+  
+  .items{
+      margin: 1rem;
+      width: fit-content;
+      gap: 1rem;
+  }
+  
+  .item_img{
+      height: 90px;
+      object-fit:contain;
+  }
+  .item_price{
+      margin: 0 0  0 .5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+  }
+  .item_info{
+    margin: 0 1rem 0 0.5rem;
+  
+}
+.logo{
+  width: 100px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+  .item_btns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+  .item_btn {
+      width: 100px;
+      z-index: 1;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      margin: auto;
+      border-radius: 14px;
+      padding: 1rem;
+      align-items: center;
+      border: solid 2px $BudgetBlu;
+      transition: .1s ease-in;
     }
-   .item_btn {
-      width: 140px;
+    
+    .item_btn a {
+      color: $BudgetBlu;
+      transition: color 0.1s ease-in; /* Agrega una transición al cambio de color */
+    }
+    
+    .item_btn::after {
+      content: "";
+      background: $gradiente; /* color de fondo hover */
+      position: absolute;
+      z-index: -1;
+      padding: 16px 20px;
+      display: block;
+      left: 0;
+      right: 0;
+      top: -100%;
+      bottom: 100%;
+      transition: all 0.5s;
+    }
+    .item_btn:hover::after {
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transition: all 0.2s;
     }
   }

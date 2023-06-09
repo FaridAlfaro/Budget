@@ -109,7 +109,7 @@ const Checkout = () => {
         )}
       </Formik>
 
-      <img src={Buy} alt="" />
+      <img src={Buy} alt="" className="empty"/>
     </div>
   );
 };
