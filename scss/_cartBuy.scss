@@ -21,9 +21,6 @@
     flex-direction: column;
 
 }
-.buy_ll{
-
-}
 .cart_item_buy {
     border-left: solid 10px $BudgetGre;
     display: grid;
@@ -40,12 +37,7 @@
 .cart_price_buy{
     font-weight: 700;
 }
-.cart_num_buy{
 
-}
-.cart_remove_buy{
-
-}
 .buy_empty_max{
     height: 60vh;
     width: 80%;
@@ -108,9 +100,7 @@
         display: flex;
         flex-direction: column;
     }
-    .buy_ll{
-    
-    }
+ 
     .cart_item_buy {
         border-left: solid 10px $BudgetGre;
         display: grid;

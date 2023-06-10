@@ -172,42 +172,45 @@
     width: 100%;
   }
   .item_btn {
-      width: 100px;
-      z-index: 1;
-      position: relative;
-      cursor: pointer;
-      overflow: hidden;
-      margin: auto;
-      border-radius: 14px;
-      padding: 1rem;
-      align-items: center;
-      border: solid 2px $BudgetBlu;
-      transition: .1s ease-in;
-    }
+    width: 100px;
+    z-index: 1;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 14px;
+    padding: 1rem;
+    align-items: center;
+    border: solid 2px $BudgetBlu;
+    transition: .1s ease-in;
+  }
+  
+  .item_btn a {
+    color: $BudgetBlu;
+    transition: color 0.1s ease-in; /* Agrega una transición al cambio de color */
+  }
+  
+  .item_btn:active::after {
+    content: "";
+    background: $gradiente; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    left: 0;
+    right: 0;
+    top: -100%;
+    bottom: 100%;
+    transition: all 0.5s;
+  }
+  
+  .item_btn:active::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.2s;
+  }
+  
     
-    .item_btn a {
-      color: $BudgetBlu;
-      transition: color 0.1s ease-in; /* Agrega una transición al cambio de color */
-    }
-    
-    .item_btn::after {
-      content: "";
-      background: $gradiente; /* color de fondo hover */
-      position: absolute;
-      z-index: -1;
-      padding: 16px 20px;
-      display: block;
-      left: 0;
-      right: 0;
-      top: -100%;
-      bottom: 100%;
-      transition: all 0.5s;
-    }
-    .item_btn:hover::after {
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      transition: all 0.2s;
-    }
   }

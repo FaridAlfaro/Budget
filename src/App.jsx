@@ -8,7 +8,6 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer/Footer";
 import ItemDetailContainer from "./components/ItemDetailContainer/itemsDetailContainer";
-import SearchContainer from "./components/SearchContainer/SearchContainer";
 import { CartProvider } from "./components/Context/CartContext";
 import CartPay from "./components/CartPay/CartPay";
 import Login from "./components/Login/Login";
@@ -16,6 +15,8 @@ import Register from "./components/Login/Register";
 import { AuthProvider } from "./components/Context/Authentication";
 import Checkout from "./components/Checkout/Checkout";
 import Order from "./components/Order/Order";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
+import CheckoutContain from "./components/CheckoutContain/CheckoutContain";
 function App() {
   useEffect(() => {
     AOS.init({
@@ -37,7 +38,8 @@ function App() {
               <Route path="/Home" element={ <Home/> }/>
               <Route path="/login" element={ <Login/> }/>
               <Route path="/register" element={ <Register/> }/>
-              <Route path='/checkout' element={ <Checkout/> }/>
+              <Route path="/progress" element={ <ProgressBar/> }/>
+              <Route path='/checkout' element={ <CheckoutContain/> }/>
               <Route path="/order/:orderId" element={<Order />} />
               {/* <Route path="*" element={<Navigate to={'/'}/>}/> */}
             </Routes>

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../Context/CartContext";
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { collection, addDoc, writeBatch, doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -12,19 +12,39 @@ const schema = Yup.object().shape({
     .required("Campo obligatorio")
     .min(3, "El nombre es muy corto")
     .max(20, "El nombre es demasiado largo"),
-  direccion: Yup.string()
+  dni: Yup.string()
     .required("Campo obligatorio")
-    .min(6, "La dirección es muy corta")
-    .max(20, "La dirección es demasiado larga"),
+    .min(8, "El DNI es demasiado corto")
+    .max(12, "El DNI es demasiado largo"),
   email: Yup.string()
     .email("Campo obligatorio")
-    .required("Este campo es requerido")
+    .required("Este campo es requerido"),
+  telefono: Yup.string()
+    .required("Campo obligatorio")
+    .min(7, "El número de teléfono es demasiado corto")
+    .max(15, "El número de teléfono es demasiado largo"),
+  direccion: Yup.string()
+    .when('currentStep', {
+      is: 2,
+      then: Yup.string().required("Campo obligatorio")
+    }),
+  tipoCaja: Yup.string()
+    .when('currentStep', {
+      is: 3,
+      then: Yup.string().required("Campo obligatorio")
+    }),
+  tipoMoneda: Yup.string()
+    .when('currentStep', {
+      is: 3,
+      then: Yup.string().required("Campo obligatorio")
+    })
 });
 
-const Checkout = () => {
+const Checkout = ({ currentStep, nextStep, prevStep }) => {
   const { cart, totalCart, emptyCart } = useContext(CartContext);
   const [orderId, setOrderId] = useState(null);
   const navigate = useNavigate();
+
   const generarOrden = async (values) => {
     const orden = {
       client: values,
@@ -85,31 +105,94 @@ const Checkout = () => {
   }
 
   return (
-    <div className="login">
+    <div className="login login_mod">
       <Formik
         initialValues={{
           nombre: "",
+          dni: "",
+          email: "",
+          telefono: "",
           direccion: "",
-          email: ""
+          tipoCaja: "",
+          tipoMoneda: ""
         }}
         validationSchema={schema}
         onSubmit={generarOrden}
       >
-        {() => (
+        {({ values }) => (
           <Form className="login_cnt">
-            <Field name="nombre" type="text" className="login_input" placeholder="Nombre" />
-            <ErrorMessage name="nombre" component="p" />
-            <Field name="direccion" type="text" className="login_input" placeholder="Dirección" />
-            <ErrorMessage name="direccion" component="p" />
-            <Field name="email" type="email" className="login_input" placeholder="Email" />
-            <ErrorMessage name="email" component="p" />
+            {currentStep === 1 && (
+              <>
+                <Field name="nombre" type="text" className="login_input" placeholder="Nombre" />
+                <ErrorMessage name="nombre" component="p" />
+                <Field name="dni" type="text" className="login_input" placeholder="DNI" />
+                <ErrorMessage name="dni" component="p" />
+                <Field name="email" type="email" className="login_input" placeholder="Email" />
+                <ErrorMessage name="email" component="p" />
+                <Field name="telefono" type="text" className="login_input" placeholder="Teléfono" />
+                <ErrorMessage name="telefono" component="p" />
+              </>
+            )}
 
-            <button className="cart_buy" type="submit">Finalizar compra</button>
+{currentStep === 2 && (
+              <>
+                <Field name="direccion" type="text" className="login_input" placeholder="Dirección" />
+                <ErrorMessage name="direccion" component="p" />
+              </>
+            )}
+
+            {currentStep === 3 && (
+              <>
+                <Field name="tipoCaja" as="select" className="login_input">
+                  <option value="">Seleccionar tipo de caja</option>
+                  <option value="con-caja">Con caja</option>
+                  <option value="sin-caja">Sin caja</option>
+                </Field>
+                <ErrorMessage name="tipoCaja" component="p" />
+                
+                <Field name="tipoMoneda" as="select" className="login_input">
+                  <option value="">Seleccionar tipo de moneda</option>
+                  <option value="con-pesos">Con pesos</option>
+                  <option value="con-dolares">Con dólares</option>
+                </Field>
+                <ErrorMessage name="tipoMoneda" component="p" />
+              </>
+            )}
+
+            {currentStep === 4 && (
+              <>
+                <p>Nombre: {values.nombre}</p>
+                <p>DNI: {values.dni}</p>
+                <p>Email: {values.email}</p>
+                <p>Teléfono: {values.telefono}</p>
+                <p>Dirección: {values.direccion}</p>
+                <p>Tipo de caja: {values.tipoCaja}</p>
+                <p>Tipo de moneda: {values.tipoMoneda}</p>
+              </>
+            )}
+
+            {currentStep < 4 && (
+              <button className="item_btn" type="button" onClick={nextStep}>
+                Siguiente
+              </button>
+            )}
+
+            {currentStep > 1 && (
+              <button className="check_btn_prev" type="button" onClick={prevStep}>
+                Retroceder
+              </button>
+            )}
+
+            {currentStep === 4 && (
+              <button className="buy_empty_btn" type="submit">
+                Submit
+              </button>
+            )}
           </Form>
         )}
       </Formik>
 
-      <img src={Buy} alt="" className="empty"/>
+      <img src={Buy} alt="" className="empty" />
     </div>
   );
 };

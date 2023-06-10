@@ -6,17 +6,18 @@ import { Link } from "react-router-dom";
 import GeneralDescription from "../GeneralDescription/GeneralDescription";
 
 function ItemDetail({ productos }) {
+  
+  const { isInCart, AddToCart } = useContext(CartContext)
+  const [quantity, setQuantity] = useState(1)
+  const { image, name, price, stock, id, color, memory, ram} = productos;
+  const precio_pesos = productos.price*490
+  const precio_pesos_cuotas = productos.price*490*1.5
+  const precio_usd = productos.price*1.5
+
     if (!productos) {
       return <LoadingSpinner/>
     }
-  
-    const { image, name, price, description, stock, id, color, year, resolution, memory, ram, cpu, dimensions} = productos;
-    const precio_pesos = productos.price*490
-    const precio_pesos_cuotas = productos.price*490*1.5
-    const precio_usd = productos.price*1.5
-    const { AddToCart, isInCart } = useContext(CartContext)
-    console.log( isInCart(id) )
-    const [quantity, setQuantity] = useState(1)
+
     const handleAddCart = () =>{
       const AddCart = {
         ...productos, 
@@ -24,6 +25,7 @@ function ItemDetail({ productos }) {
       }
       AddToCart(AddCart)
     }
+    
     return (
       <div className="item_detail_cnt">
         
