@@ -5,8 +5,12 @@ import { collection, addDoc, writeBatch, doc, getDoc } from "firebase/firestore"
 import { db } from "../../firebase/config";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import Buy from "../../../img/Persons/2.svg";
+import submit from '../../../img/Persons/submit.svg';
+import first from '../../../img/Persons/first.svg'
+import des from '../../../img/Persons/descuento.svg'
+import map from '../../../img/Persons/map.svg'
 import Order from "../Order/Order";
+
 const schema = Yup.object().shape({
   nombre: Yup.string()
     .required("Campo obligatorio")
@@ -104,8 +108,9 @@ const Checkout = ({ currentStep, nextStep, prevStep }) => {
     return <Navigate to="/" />;
   }
 
+
   return (
-    <div className="login login_mod">
+    <div className="buyed">
       <Formik
         initialValues={{
           nombre: "",
@@ -118,11 +123,16 @@ const Checkout = ({ currentStep, nextStep, prevStep }) => {
         }}
         validationSchema={schema}
         onSubmit={generarOrden}
+        isInitialValid={false} 
       >
-        {({ values }) => (
-          <Form className="login_cnt">
+        {({ values, isValid }) => ( 
+          <Form >
             {currentStep === 1 && (
-              <>
+              <> 
+              <div className="empty">
+                <img src={first} alt=""/>
+              </div>
+              
                 <Field name="nombre" type="text" className="login_input" placeholder="Nombre" />
                 <ErrorMessage name="nombre" component="p" />
                 <Field name="dni" type="text" className="login_input" placeholder="DNI" />
@@ -134,26 +144,28 @@ const Checkout = ({ currentStep, nextStep, prevStep }) => {
               </>
             )}
 
-{currentStep === 2 && (
-              <>
-                <Field name="direccion" type="text" className="login_input" placeholder="Dirección" />
+            {currentStep === 2 && (
+              <><img src={map} alt="" className="empty" style={{maxHeight:'300px'}}/>
+                <Field name="direccion" type="text" className="login_input" placeholder="Dirección (opcional)" />
                 <ErrorMessage name="direccion" component="p" />
               </>
             )}
 
             {currentStep === 3 && (
-              <>
+              <><img src={des} alt="" className="empty" style={{maxHeight:'300px'}}/>
+                <p style={{width:"250px"}}>Esta información nos ayudara a ofrecerte descuetos (opcional)</p>
                 <Field name="tipoCaja" as="select" className="login_input">
-                  <option value="">Seleccionar tipo de caja</option>
+                  <option value="">Te gustaría recibir tus productos</option>
                   <option value="con-caja">Con caja</option>
                   <option value="sin-caja">Sin caja</option>
                 </Field>
                 <ErrorMessage name="tipoCaja" component="p" />
-                
+
                 <Field name="tipoMoneda" as="select" className="login_input">
-                  <option value="">Seleccionar tipo de moneda</option>
+                  <option value="">Preferís pagar con</option>
                   <option value="con-pesos">Con pesos</option>
                   <option value="con-dolares">Con dólares</option>
+                  <option value="con-cripto">Con cripto</option>
                 </Field>
                 <ErrorMessage name="tipoMoneda" component="p" />
               </>
@@ -161,6 +173,7 @@ const Checkout = ({ currentStep, nextStep, prevStep }) => {
 
             {currentStep === 4 && (
               <>
+                <img src={submit} alt="" className="empty" style={{maxHeight:'300px'}}/>
                 <p>Nombre: {values.nombre}</p>
                 <p>DNI: {values.dni}</p>
                 <p>Email: {values.email}</p>
@@ -172,9 +185,13 @@ const Checkout = ({ currentStep, nextStep, prevStep }) => {
             )}
 
             {currentStep < 4 && (
-              <button className="item_btn" type="button" onClick={nextStep}>
-                Siguiente
-              </button>
+                isValid ? ( 
+                  <button className="item_btn" type="button" onClick={nextStep}>
+                    Siguiente
+                  </button>
+                ) : (
+                  <h3>Completar el formulario</h3>
+                )
             )}
 
             {currentStep > 1 && (
@@ -191,8 +208,6 @@ const Checkout = ({ currentStep, nextStep, prevStep }) => {
           </Form>
         )}
       </Formik>
-
-      <img src={Buy} alt="" className="empty" />
     </div>
   );
 };

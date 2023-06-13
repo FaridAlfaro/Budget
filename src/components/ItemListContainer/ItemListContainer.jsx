@@ -13,7 +13,7 @@ function ItemListContainer() {
   const [isLoading, setIsLoading] = useState(true);
   const { categoryId } = useParams();
   const search = searchParams.get("search");
-
+  
   useEffect(() => {
     setIsLoading(true);
 
@@ -63,7 +63,7 @@ function ItemListContainer() {
 
   let content = null;
   if (isLoading) {
-    content = <LoadingSpinner />;
+    content = <LoadingSpinner height ='600px'/>;
   } else if (productos && productos.length === 0) {
     content = <BuyEmpty title="No hay nada por aquí..." btn="Ver productos" />;
   } else {

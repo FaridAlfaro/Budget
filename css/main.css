@@ -1480,6 +1480,10 @@ a:visited {
   padding: 2rem;
   background-color: rgba(15, 78, 104, 0.137254902);
 }
+.empty img {
+  object-fit: contain;
+  width: 100%;
+}
 
 .buy_empty_btn:hover {
   transform: scale(1.2);
@@ -1569,7 +1573,7 @@ a:visited {
   }
   .empty {
     width: 500px;
-    border-radius: 100px;
+    border-radius: 30px;
     padding: 2rem;
     background-color: rgba(15, 78, 104, 0.137254902);
   }
@@ -1659,6 +1663,22 @@ a:visited {
   height: fit-content;
 }
 
+.buyed {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 100px;
+}
+.buyed form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 .login_cnt {
   display: flex;
   flex-direction: column;
@@ -1742,6 +1762,7 @@ a:visited {
   }
   .login_mod {
     height: fit-content;
+    margin-bottom: 50px;
   }
   .login_img {
     width: 200px;

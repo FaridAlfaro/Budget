@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import Title from '../Title section/Title';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
+import OrderImg from '../../../img/Persons/pay2.svg'
 const Order = () => {
   const { orderId } = useParams();
   const [order, setOrder] = useState(null);
-
+  
   useEffect(() => {
     const fetchOrder = async () => {
       try {
@@ -26,21 +28,21 @@ const Order = () => {
   }, [orderId]);
 
   if (!order) {
-    return <p>Cargando orden...</p>;
+    return <LoadingSpinner />;
   }
+  
 
   return (
-    <div>
+    <>
       <Title title="Tu compra" link="Ayuda" linkdir='/help'>
-        <div className='title_contain' style={{height:'80vh'}}>
-            <h2 className='Title' style={{fontSize:'2rem'}}>Tu compra se registró exitosamente!</h2>
+        <div className='title_contain' style={{display:'flex', flexDirection:'column', gap:'1rem'}}>
+            <h2 style={{fontSize:'2rem'}}>Tu compra se registró exitosamente!</h2>
         <p>Tu núnmero de orden es: {orderId}</p>
+        <img src={OrderImg} alt="" className='empty' style={{width:'400px'}}/>
         </div>
         
-        {/* <Link to="/">Volver</Link> */}
-      </Title>
-      {/* Muestra los detalles de la orden */}
-    </div>
+        </Title>
+    </>
   );
 };
 
