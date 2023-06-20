@@ -5,6 +5,7 @@ import FeaturedCategory from './NavBarComponents/FeaturedCategory';
 import Search from './NavBarComponents/Search';
 import Logo from '../../../img/LOGO/Recurso 135.svg';
 import { Link } from 'react-router-dom';
+import CartWidget from '../CartWdget/CartWidget';
 
 function NavBar()  {
   const categorias = useMemo(
@@ -29,7 +30,9 @@ function NavBar()  {
       <div className="container_logo">
         {LogoComponent}
         <Search />
-        <NavConten />
+        <NavConten>
+         <CartWidget/>
+        </NavConten>
       </div>
       <div className="nav-container">
         <AllCategoryNav />

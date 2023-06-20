@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { Authentication } from '../../Context/Authentication';
 
-function NavConten() {
+function NavConten({children}) {
   const { user, logout } = useContext(Authentication);
     return(
       <nav className="nav-content">
@@ -48,7 +48,7 @@ function NavConten() {
           <li className="nav-content-item">
           <Link to={'/like'}className="nav-content-link a_nav"><FontAwesomeIcon icon={faHeart} className='heart'/></Link>
           </li>
-          <CartWidget/>
+          {children}
         </ul>
       </nav>
     );
