@@ -156,6 +156,18 @@
     "dimensions": "28.9 x 28.9 x 18.3 cm"
   },
   {
+    "name": "PC Gamer R5 RX6700",
+    "description": "El DJI Phantom 4 Pro V2.0 es un dron de alta gama con características avanzadas. Con su cámara de alta resolución y su sistema de estabilización, te permite capturar imágenes y videos de alta calidad desde el aire. Su diseño robusto y su tecnología de vuelo inteligente lo hacen ideal para fotógrafos y videógrafos profesionales. Descubre el mundo desde una perspectiva única con el DJI Phantom 4 Pro V2.0.",
+    "image": "https://i.ibb.co/fYTFhHK/61bknrpxryl-ac-sl1500-1-removebg-preview.webp",
+    "price": 1200,
+    "category": "Consolas",
+    "stock": 3,
+    "year": 2023,
+    "memory": "1TB",
+    "ram": "16GB",
+    "resolution": "1440 120hz"
+  },
+  {
     "name": "Samsung Galaxy S21U",
     "description": "El Samsung Galaxy S21 Ultra es un teléfono inteligente de alta gama con características excepcionales. Con su potente procesador y su pantalla de alta resolución, ofrece un rendimiento sobresaliente y una experiencia visual impresionante. Su sistema de cámaras de alta calidad te permite capturar fotos y videos asombrosos. Descubre el poder y la innovación del Samsung Galaxy S21 Ultra y lleva tu experiencia móvil al siguiente nivel.",
     "image": "https://cdn.dxomark.com/wp-content/uploads/medias/post-74840/samsunggalaxys21ultra5g.jpg",

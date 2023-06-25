@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../css/main.css";
@@ -32,7 +32,6 @@ function App() {
             <Routes>
               <Route path="/" element={ <ItemListContainer/> }/>
               <Route path='/productos/:categoryId' element={ <ItemListContainer/> }/>
-              {/* <Route path='/' element={ <ItemListContainer/> }/> */}
               <Route path='/buy' element={ <CartPay/> }/>
               <Route path='/productos/info/:productoId' element={ <ItemDetailContainer/> }/>
               <Route path="/Home" element={ <Home/> }/>
@@ -41,7 +40,7 @@ function App() {
               <Route path="/progress" element={ <ProgressBar/> }/>
               <Route path='/checkout' element={ <CheckoutContain/> }/>
               <Route path="/order/:orderId" element={<Order />} />
-              {/* <Route path="*" element={<Navigate to={'/'}/>}/> */}
+              <Route path="*" element={<Navigate to={'/Home'}/>}/>
             </Routes>
           <Footer />
         </BrowserRouter>
